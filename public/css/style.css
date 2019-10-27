@@ -1,0 +1,26 @@
+div.bgc-contenu {
+    background-color: #6b91a8;
+}
+
+i.fa-search {
+    color: white;
+}
+
+i.fa-clinic-medical {
+    font-size: 4em;
+}
+
+div.menu, div.banner, div.footer {
+    background-color: #1a3f60;
+    /* background-color: #2f5779; */
+    box-shadow: 0 2px 17px rgba(238, 233, 233, 0.945);
+}
+
+#menu-consultation {
+    display: none;
+}
+
+.fa-angle-right:hover {
+    cursor: pointer;
+}
+
