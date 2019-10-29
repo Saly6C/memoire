@@ -1,7 +1,52 @@
 {% extends "_partial.html.twig" %}
 
 {% block body %}
-    <div class="container m-auto bg-primary">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit necessitatibus debitis ullam! Provident facilis sequi, consectetur tempore similique et quasi, eveniet neque, explicabo ipsa repellendus esse. Soluta placeat eos laudantium.
+    <!-- <div class="container container-login p-3">
+        <div class="login-block">
+            <div class="img-profile d-flex justify-content-center">
+                <img src="../images/user-default.jpg" alt="user-img" class="user-img-login rounded-circle p-5">
+            </div>
+            <div class="input-group border rounded">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
+                </div>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mt-3 border rounded">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                </div>
+                <input type="password" class="form-control" arial-label="password" name="password" id="password" placeholder="Password">
+            </div>
+            <div class="d-flex justify-content-center align-items-center mt-3 border rounded connexion text-white">
+                <i class="fas fa-sign-in-alt"></i>
+                <button type="submit" class="btn text-white">Se connecter</button>
+            </div>  
+        </div>
+    </div> -->
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
     </div>
+  </div>
 {% endblock %}
