@@ -44,3 +44,43 @@ margin-top: 12em;
 #operationsConsultation, #operationsHospitalisation, #operationsDossierPatient, #operationsPatient, #operationsParametre {
     display: none;
 }
+
+.login-block {
+    width: max-content;
+    margin: auto;
+}
+
+body {
+    background-size: cover;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #6b91a8!important;
+}
+
+.login-box {
+    margin: 0 auto;
+    margin-top: 12em;
+    padding: 0px;
+}
+
+div.modal-content {
+    background-color: #1a3f60;
+}
+
+.user-img {
+    margin-top: -5em;
+}
+
+
+/* .form-group::before {
+    font-family: 'Font Awesome\ 5 Free';
+    Content: "f007";
+    position: absolute;
+} */
+
+form button.btn-login {
+    background-color: #c7c7c7;
+}
+
+form > button.btn-login:hover {
+    background-color: #fff;
+}
