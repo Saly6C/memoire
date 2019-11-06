@@ -2,8 +2,9 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
@@ -16,10 +17,10 @@ class SecurityController extends AbstractController
         // get the login error if there is one
         $error = $auth->getLastAuthenticationError();
         // last username entered by the user
-        // $lastUsername = $auth->getLastUsername();
-        return $this->render('security/login.html.twig', [
-            // 'last_name' => $lastUsername,
+        $lastUsername = $auth->getLastUsername();
+        return $this->render('security/login.html.twig', array (
+            'lastUsername' => $lastUsername,
             'error' => $error
-        ]);
+        ));
     }
 }
