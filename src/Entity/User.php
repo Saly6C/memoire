@@ -89,6 +89,8 @@ class User implements UserInterface
         return $this;
     }
 
+    
+
     /**
      * @see UserInterface
      */
@@ -104,5 +106,23 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    //transforme notre objet en chaine
+    public function serialize() {
+        return serialize([
+            $this->id,
+            $this->username,
+            $this->password 
+        ]);
+    }
+
+    //transforme notre chaine en objet
+    public function unserialize($serialized) {
+        list (
+            $this->id,
+            $this->username,
+            $this->password 
+        ) = unserialize($serialized, ['allowed_classes' => false]);
     }
 }
