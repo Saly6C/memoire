@@ -31,19 +31,27 @@
     <div class="modal-content">
       <div class="col-12 user-img">
         <img src="../images/user-default.jpg" alt="user-img" class="h-60 w-50  img-profile border-primary rounded-circle">
+        {% if error %}
+        <div class="error alert danger">
+         error
+        </div>
+      {% endif %}
       </div>
       <div class="col-12 form-input mt-5">
-        <form action="{{ path('accueil_clinique') }}" method="post">
-            {% if error %}
-                <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-            {% endif %}
+       
+        <form action="{{ path('clinic_login') }}" method="post">
+        <!-- {% if error %}
+          <div class="error alert danger">
+            {{ error.messageKey |trans(error.messageData, 'security') }}
+          </div>
+        {% endif %} -->
           <!-- username -->
           <div class="form-group">
               <div class="input-group">
                   <div class="input-group-prepend">
                       <span class="input-group-text" id="user-icon"><i class="fa fa-user"></i></span>
                   </div>
-                  <input type="text" name="_username" id="username" class=" form-control" placeholder="Username" required>
+                  <input type="text" name="_username" id="username" class=" form-control" placeholder="Username" required value="{{ lastUsername }}">
               </div>
           </div>
           <!-- password -->
