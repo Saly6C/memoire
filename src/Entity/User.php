@@ -22,16 +22,21 @@ class User implements UserInterface
      */
     private $username;
 
-    /**
-     * @ORM\Column(type="json")
-     */
-    private $roles = [];
+    // /**
+    //  * @ORM\Column(type="json")
+    //  */
+    // private $roles = [];
 
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $fonction;
 
     public function getId(): ?int
     {
@@ -113,7 +118,8 @@ class User implements UserInterface
         return serialize([
             $this->id,
             $this->username,
-            $this->password 
+            $this->password,
+            $this->fonction
         ]);
     }
 
@@ -122,7 +128,20 @@ class User implements UserInterface
         list (
             $this->id,
             $this->username,
-            $this->password 
+            $this->password,
+            $this->fonction
         ) = unserialize($serialized, ['allowed_classes' => false]);
+    }
+
+    public function getFonction(): ?string
+    {
+        return $this->fonction;
+    }
+
+    public function setFonction(string $fonction): self
+    {
+        $this->fonction = $fonction;
+
+        return $this;
     }
 }
