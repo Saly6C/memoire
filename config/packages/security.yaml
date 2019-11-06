@@ -16,6 +16,14 @@ security:
             security: false
         main:
             anonymous: true
+            form_login:
+                # login_path: login
+                check_path: login
+            logout:
+                path: /logout
+                target: /
+            
+
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
@@ -28,3 +36,6 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/home, roles: ROLE_USER }
+
+    
