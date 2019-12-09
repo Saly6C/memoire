@@ -31,20 +31,17 @@
     <div class="modal-content">
       <div class="col-12 user-img">
         <img src="../images/user-default.jpg" alt="user-img" class="h-60 w-50  img-profile border-primary rounded-circle">
-        {% if error %}
-        <div class="error alert danger">
-         error
-        </div>
-      {% endif %}
+        
       </div>
       <div class="col-12 form-input mt-5">
        
         <form action="{{ path('clinic_login') }}" method="post">
-        <!-- {% if error %}
+        {% if error %}
+          {{ dump(error) }}
           <div class="error alert danger">
-            {{ error.messageKey |trans(error.messageData, 'security') }}
+            {{ error.messageKey | trans(error.messageData, 'security') }}
           </div>
-        {% endif %} -->
+        {% endif %}
           <!-- username -->
           <div class="form-group">
               <div class="input-group">
@@ -60,7 +57,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-key"></i></span>
               </div>
-              <input type="password" name="_password" id="password" class="form-control" placeholder="Password" required>
+              <input type="password" name="_password" id="password" class="form-control" placeholder="Password" required autocomplete="on">
             </div> 
           </div>
           <button class="btn  btn-login mt-4" type="submit"><i class="fa fa-sign-in"></i> Se connecter</button>
@@ -69,6 +66,7 @@
       <div class="col-12 forgot-pwd my-3">
         <a href="#" class="text-white">Mot de passe oublié?</a>
       </div>
+    </div>
   </div>
 </div>
 {% endblock %}

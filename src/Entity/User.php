@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
+use Serializable;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User implements UserInterface
+class User implements UserInterface, \Serializable
 {
     /**
      * @ORM\Id()
@@ -22,21 +23,16 @@ class User implements UserInterface
      */
     private $username;
 
-    // /**
-    //  * @ORM\Column(type="json")
-    //  */
-    // private $roles = [];
+    /**
+     * @ORM\Column(type="json")
+     */
+    private $roles = [];
 
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
      */
     private $password;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $fonction;
 
     public function getId(): ?int
     {
@@ -94,8 +90,6 @@ class User implements UserInterface
         return $this;
     }
 
-    
-
     /**
      * @see UserInterface
      */
@@ -113,13 +107,12 @@ class User implements UserInterface
         // $this->plainPassword = null;
     }
 
-    //transforme notre objet en chaine
-    public function serialize() {
+     //transforme notre objet en chaine
+     public function serialize() {
         return serialize([
             $this->id,
             $this->username,
-            $this->password,
-            $this->fonction
+            $this->password 
         ]);
     }
 
@@ -128,20 +121,7 @@ class User implements UserInterface
         list (
             $this->id,
             $this->username,
-            $this->password,
-            $this->fonction
+            $this->password 
         ) = unserialize($serialized, ['allowed_classes' => false]);
-    }
-
-    public function getFonction(): ?string
-    {
-        return $this->fonction;
-    }
-
-    public function setFonction(string $fonction): self
-    {
-        $this->fonction = $fonction;
-
-        return $this;
     }
 }
