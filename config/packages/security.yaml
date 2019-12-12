@@ -1,7 +1,7 @@
 security:
     encoders:
         App\Entity\User:
-            algorithm: bcrypt
+            algorithm: auto
         # Symfony\Component\Security\Core\User\User: plaintext
 
 
@@ -45,4 +45,5 @@ security:
         # - { path: ^/profile, roles: ROLE_USER }
         - { path: ^/dashboard, roles: ROLE_USER }
 
+    
     
