@@ -47,6 +47,11 @@
 
 <div class="container mt-4">
 
+  {% if error %}
+      <div class="error alert danger">
+          {{ error.messageKey | trans(error.messagedata, 'security') }}
+      </div> 
+  {% endif %}
   <form action="{{ path('clinic_login') }}" method="post">
       <div class="form-group">
           <input type="text" name="_username" required placeholder="email" class="form-control" >
