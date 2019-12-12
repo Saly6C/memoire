@@ -10,6 +10,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
 {
@@ -18,6 +19,7 @@ class SecurityController extends AbstractController
      */
     public function souscription(Request $request, ManagerRegistry $manager, UserPasswordEncoderInterface $encoder)
     {
+        
         //on créé l'objet user qu'on va lier à notre formulaire
         $user = new User();
         //ici on intancie notre formulaire 
@@ -40,8 +42,14 @@ class SecurityController extends AbstractController
     /**
      * @Route("/login", name="clinic_login")
      */
-    public function login() {
-        return $this->render('security/login.html.twig');
+    public function login(AuthenticationUtils $auth) {
+        
+        // $utilisateur = $auth->getLastUsername();
+        $error = $auth->getLastAuthenticationError();
+        return $this->render('security/login.html.twig', [
+            'error' => $error,
+            // 'user' =>$utilisateur
+        ]);
     }
 
     /**
