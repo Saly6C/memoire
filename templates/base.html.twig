@@ -20,138 +20,147 @@
 		<!-- content -->
 		<div
 			class="d-flex mt-3">
-			<!-- left menu -->
+			<!-- left content -->
 			<div class="col-3 col-md-4 col-lg-3 col-sm-5 pl-0">
 				<div class="d-flex flex-column text-white rounded-lg menu">
+					
+					{% for r in app.user.roles %}
+						{{ r }}
+					{% endfor %}
+					
 					<div class="profile">
 						<img src="../images/user-default.jpg" alt="user-img" class="img-fluid rounded-circle p-5">
 					</div>
 					<!-- Consultation -->
-					<div class="d-flex border-bottom py-2 consultation">
-						<span class="col-1">
+					<div class="d-flex border-bottom py-2 ">
+						<span class="col-2">
 							<i class="fas fa-user-md"></i>
 						</span>
-						<div class="col-9 ">Consultation
-							<div class="" id="operationsConsultation">
-								<div>
+						<div class="col-8 font-weight-bold"><span class="d-flex justify-content-center">Consultation</span>
+							<div class="my-2" id="operationsConsultation">
+								<!-- List group -->
+								<div class="list-group" id="myList" role="tablist">
+									<a class="list-group-item list-group-item-action active" data-toggle="list" href="#ajouterConsultation" role="tab"><i class="fa fa-plus-circle mr-3" aria-hidden="true"></i>Ajouter</a>
+									<a class="list-group-item list-group-item-action" data-toggle="list" href="#listerConsultation" role="tab"><i class="fa fa-list  mr-3" aria-hidden="true"></i>Lister</a>
+								</div>
+								<!-- <div>
 									<i class="fa fa-plus-circle" aria-hidden="true"></i>
-									<a href="#" class="text-white">
+									<a href="#block_ajouter" class="text-white">
 										Ajouter</a>
 								</div>
 								<div>
 									<i class="fa fa-list" aria-hidden="true"></i>
-									<a href="#" class="text-white">
+									<a href="#block_lister" class="text-white">
 										Lister</a>
-								</div>
+								</div> -->
 							</div>
 						</div>
-						<span class="col-1">
+						<span class="col-2 consultation">
 							<i class="test fas fa-angle-right"></i>
 						</span>
 					</div>
 					<!-- Hospitalisation -->
-					<div class="d-flex border-bottom py-2 hospitalisation">
-						<span class="col-1">
+					<div class="d-flex border-bottom py-2">
+						<span class="col-2">
 							<i class="fas fa-bed"></i>
 						</span>
-						<div class="col-9">Hospitalisation
-							<div class="" id="operationsHospitalisation">
-								<div>
-									<i class="fa fa-plus-circle" aria-hidden="true"></i>
-									<a href="#" class="text-white">
-										Ajouter</a>
-								</div>
-								<div>
-									<i class="fa fa-list" aria-hidden="true"></i>
-									<a href="#" class="text-white">
-										Lister</a>
+						<div class="col-8 font-weight-bold"><span class="d-flex justify-content-center">Hospitalisation</span>
+							<div class="my-2" id="operationsHospitalisation">
+								<!-- List group -->
+								<div class="list-group" id="myList" role="tablist">
+									<a class="list-group-item list-group-item-action active" data-toggle="list" href="#ajouterHospitalisation" role="tab"><i class="fa fa-plus-circle mr-3" aria-hidden="true"></i>Ajouter</a>
+									<a class="list-group-item list-group-item-action" data-toggle="list" href="#listerHospitalisation" role="tab"><i class="fa fa-list  mr-3" aria-hidden="true"></i>Lister</a>
 								</div>
 							</div>
 						</div>
-						<span class="col-1">
+						<span class="col-2 hospitalisation">
 							<i class="test fas fa-angle-right"></i>
 						</span>
 					</div>
 					<!-- Dossier Patient -->
-					<div class="d-flex border-bottom py-2 dossierPatient">
-						<span class="col-1">
+					<div class="d-flex border-bottom py-2 ">
+						<span class="col-2">
 							<i class="fas fa-address-book"></i>
 						</span>
-						<div class="col-9">Dossier Patient
-							<div class="" id="operationsDossierPatient">
-								<div>
-									<i class="fa fa-plus-circle" aria-hidden="true"></i>
-									<a href="#" class="text-white">
-										Ajouter</a>
-								</div>
-								<div>
-									<i class="fa fa-list" aria-hidden="true"></i>
-									<a href="#" class="text-white">
-										Lister</a>
+						<div class="col-8 font-weight-bold"><span class="d-flex justify-content-center">Dossier Patient</span>
+							<div class="my-2" id="operationsDossierPatient">
+								<!-- List group -->
+								<div class="list-group" id="myList" role="tablist">
+									<a class="list-group-item list-group-item-action active" data-toggle="list" href="#ajouterDossierPatient" role="tab"><i class="fa fa-plus-circle mr-3" aria-hidden="true"></i>Ajouter</a>
+									<a class="list-group-item list-group-item-action" data-toggle="list" href="#listerDossierPatient" role="tab"><i class="fa fa-list  mr-3" aria-hidden="true"></i>Lister</a>
 								</div>
 							</div>
 						</div>
-						<span class="col-1">
+						<span class="col-2 dossierPatient">
 							<i class="test fas fa-angle-right"></i>
 						</span>
 					</div>
 					<!-- Patient -->
-					<div class="d-flex border-bottom py-2 patient">
-						<span class="col-1">
+					<div class="d-flex border-bottom py-2 ">
+						<span class="col-2">
 							<i class="fas fa-users"></i>
 						</span>
-						<div class="col-9">Patient
-							<div class="" id="operationsPatient">
-								<div>
-									<i class="fa fa-plus-circle" aria-hidden="true"></i>
-									<a href="#" class="text-white">
-										Ajouter</a>
-								</div>
-								<div>
-									<i class="fa fa-list" aria-hidden="true"></i>
-									<a href="#" class="text-white">
-										Lister</a>
+						<div class="col-8 font-weight-bold"><span class="d-flex justify-content-center">Patient</span>
+							<div class="my-2" id="operationsPatient">
+								<!-- List group -->
+								<div class="list-group" id="myList" role="tablist">
+									<a class="list-group-item list-group-item-action active" data-toggle="list" href="#ajouterPatient" role="tab"><i class="fa fa-plus-circle mr-3" aria-hidden="true"></i>Ajouter</a>
+									<a class="list-group-item list-group-item-action" data-toggle="list" href="#listerPatient" role="tab"><i class="fa fa-list  mr-3" aria-hidden="true"></i>Lister</a>
 								</div>
 							</div>
 						</div>
-						<span class="col-1">
+						<span class="col-2 patient">
 							<i class="test fas fa-angle-right"></i>
 						</span>
 					</div>
 					<!-- Parametres -->
-					<div class="d-flex border-bottom py-2 parametre">
-						<span class="col-1">
+					<div class="d-flex border-bottom py-2 ">
+						<span class="col-2">
 							<i class="fas fa-cogs"></i>
 						</span>
-						<div class="col-9">Paramètres
-							<div class="" id="operationsParametre">
-								<div>
-									<i class="fas fa-user-edit" aria-hidden="true"></i>
-									<a href="#" class="text-white">
-										Modifier profile</a>
+						<div class="col-8 font-weight-bold"><span class="d-flex justify-content-center">Paramètres</span>
+							<div class="my-2" id="operationsParametre">
+								<!-- List group -->
+								<div class="list-group" id="myList" role="tablist">
+									<a class="list-group-item list-group-item-action active" data-toggle="list" href="#modifierParametre" role="tab"><i class="fa fa-plus-circle mr-3" aria-hidden="true"></i>Modifier Profile</a>
 								</div>
 							</div>
 						</div>
-						<span class="col-1">
+						<span class="col-2 parametre">
 							<i class="test fas fa-angle-right"></i>
 						</span>
 					</div>
 					<!-- connexion -->
 					<div class="d-flex py-2">
-						<span class="col-1">
+						<span class="col-2">
 							<i class="fas fa-sign-out-alt"></i>
 						</span>
-						<span class="col-10"><a href="{{ path('clinic_logout') }}">Se déconnecter</a></span>
+						<span class="col-8 d-flex justify-content-center font-weight-bold"><a href="{{ path('clinic_logout') }}">Se déconnecter</a></span>
+						<span class="col-2"></span>
 					</div>
 				</div>
 			</div>
 			<!-- right content -->
-			<div class="col-9 col-md-8 col-lg-9 col-sm-7 px-0">
-				<div class="bg-success"></div>
+			<div class="col-9 col-md-8 col-lg-9 col-sm-7 px-0 right_content">
+				<div class="">
+					<div class="tab-content" id="nav-tabContent">
+						<div class="tab-pane fade active" id="ajouterConsultation" role="tabpanel" aria-labelledby="list-ajouter-list">Ajouter consultation</div>
+						<div class="tab-pane fade " id="listerConsultation" role="tabpanel" aria-labelledby="list-lister-list">Liste consultationr</div>
+						<div class="tab-pane fade" id="ajouterHospitalisation" role="tabpanel" aria-labelledby="list-messages-list">ajouter Hospitalisation</div>
+						<div class="tab-pane fade" id="listerHospitalisation" role="tabpanel" aria-labelledby="list-settings-list">lister Hospitalisation</div>
+						<div class="tab-pane fade" id="ajouterDossierPatient" role="tabpanel" aria-labelledby="list-messages-list">ajouter DossierPatient</div>
+						<div class="tab-pane fade" id="listerDossierPatient" role="tabpanel" aria-labelledby="list-settings-list">lister DossierPatient</div>
+						<div class="tab-pane fade" id="ajouterPatient" role="tabpanel" aria-labelledby="list-messages-list">ajouter Patient</div>
+						<div class="tab-pane fade" id="listerPatient" role="tabpanel" aria-labelledby="list-settings-list">lister Patient</div>
+						<div class="tab-pane fade" id="modifierParametre" role="tabpanel" aria-labelledby="list-settings-list">modifier Parametre</div>
+					</div>
+				</div>
 			</div>
 		</div>
+		
+		
 
-		<div class="d-flex text-white py-2 mt-3 pl-3 rounded-lg footer">
+		<div class="d-flex text-white py-2 mt-3 pl-3 rounded-lg footer font-weight-bold">
 			Copyright © Saly6C 2019, All rights reserved
 		</div>
 	</div>
