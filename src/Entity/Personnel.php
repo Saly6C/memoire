@@ -43,6 +43,12 @@ class Personnel
      */
     private $consultations;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Service", inversedBy="personnels")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $service;
+
     public function __construct()
     {
         $this->consultations = new ArrayCollection();
@@ -128,6 +134,18 @@ class Personnel
                 $consultation->setPersonnel(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getService(): ?Service
+    {
+        return $this->service;
+    }
+
+    public function setService(?Service $service): self
+    {
+        $this->service = $service;
 
         return $this;
     }
