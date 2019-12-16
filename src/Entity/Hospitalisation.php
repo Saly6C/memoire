@@ -32,6 +32,12 @@ class Hospitalisation
      */
     private $chambre;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Patient", inversedBy="hospitalisations")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $patient;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +75,18 @@ class Hospitalisation
     public function setChambreId(?Chambre $chambre): self
     {
         $this->chambre = $chambre;
+
+        return $this;
+    }
+
+    public function getPatient(): ?Patient
+    {
+        return $this->patient;
+    }
+
+    public function setPatient(?Patient $patient): self
+    {
+        $this->patient = $patient;
 
         return $this;
     }

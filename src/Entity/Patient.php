@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -35,6 +37,16 @@ class Patient
      * @ORM\Column(type="integer")
      */
     private $age;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Hospitalisation", mappedBy="patient")
+     */
+    private $hospitalisations;
+
+    public function __construct()
+    {
+        $this->hospitalisations = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -85,6 +97,37 @@ class Patient
     public function setAge(int $age): self
     {
         $this->age = $age;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Hospitalisation[]
+     */
+    public function getHospitalisations(): Collection
+    {
+        return $this->hospitalisations;
+    }
+
+    public function addHospitalisation(Hospitalisation $hospitalisation): self
+    {
+        if (!$this->hospitalisations->contains($hospitalisation)) {
+            $this->hospitalisations[] = $hospitalisation;
+            $hospitalisation->setPatient($this);
+        }
+
+        return $this;
+    }
+
+    public function removeHospitalisation(Hospitalisation $hospitalisation): self
+    {
+        if ($this->hospitalisations->contains($hospitalisation)) {
+            $this->hospitalisations->removeElement($hospitalisation);
+            // set the owning side to null (unless already changed)
+            if ($hospitalisation->getPatient() === $this) {
+                $hospitalisation->setPatient(null);
+            }
+        }
 
         return $this;
     }
