@@ -36,6 +36,11 @@ class Facturation
      */
     private $nomAssurance;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Hospitalisation", mappedBy="facturation", cascade={"persist", "remove"})
+     */
+    private $hospitalisation;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -85,6 +90,23 @@ class Facturation
     public function setNomAssurance(string $nomAssurance): self
     {
         $this->nomAssurance = $nomAssurance;
+
+        return $this;
+    }
+
+    public function getHospitalisation(): ?Hospitalisation
+    {
+        return $this->hospitalisation;
+    }
+
+    public function setHospitalisation(Hospitalisation $hospitalisation): self
+    {
+        $this->hospitalisation = $hospitalisation;
+
+        // set the owning side of the relation if necessary
+        if ($hospitalisation->getFacturation() !== $this) {
+            $hospitalisation->setFacturation($this);
+        }
 
         return $this;
     }

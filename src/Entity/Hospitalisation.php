@@ -38,6 +38,12 @@ class Hospitalisation
      */
     private $patient;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Facturation", inversedBy="hospitalisation", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $facturation;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -87,6 +93,18 @@ class Hospitalisation
     public function setPatient(?Patient $patient): self
     {
         $this->patient = $patient;
+
+        return $this;
+    }
+
+    public function getFacturation(): ?Facturation
+    {
+        return $this->facturation;
+    }
+
+    public function setFacturation(Facturation $facturation): self
+    {
+        $this->facturation = $facturation;
 
         return $this;
     }
