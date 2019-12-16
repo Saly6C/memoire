@@ -36,6 +36,11 @@ class Consultation
      */
     private $autre;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Facturation", mappedBy="consultation", cascade={"persist", "remove"})
+     */
+    private $facturation;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -85,6 +90,23 @@ class Consultation
     public function setAutre(string $autre): self
     {
         $this->autre = $autre;
+
+        return $this;
+    }
+
+    public function getFacturation(): ?Facturation
+    {
+        return $this->facturation;
+    }
+
+    public function setFacturation(Facturation $facturation): self
+    {
+        $this->facturation = $facturation;
+
+        // set the owning side of the relation if necessary
+        if ($facturation->getConsultation() !== $this) {
+            $facturation->setConsultation($this);
+        }
 
         return $this;
     }
