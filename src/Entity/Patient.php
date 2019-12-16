@@ -43,6 +43,11 @@ class Patient
      */
     private $hospitalisations;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\DossierPatient", mappedBy="patient", cascade={"persist", "remove"})
+     */
+    private $dossierPatient;
+
     public function __construct()
     {
         $this->hospitalisations = new ArrayCollection();
@@ -127,6 +132,23 @@ class Patient
             if ($hospitalisation->getPatient() === $this) {
                 $hospitalisation->setPatient(null);
             }
+        }
+
+        return $this;
+    }
+
+    public function getDossierPatient(): ?DossierPatient
+    {
+        return $this->dossierPatient;
+    }
+
+    public function setDossierPatient(DossierPatient $dossierPatient): self
+    {
+        $this->dossierPatient = $dossierPatient;
+
+        // set the owning side of the relation if necessary
+        if ($dossierPatient->getPatient() !== $this) {
+            $dossierPatient->setPatient($this);
         }
 
         return $this;

@@ -26,6 +26,12 @@ class DossierPatient
      */
     private $antecedant;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Patient", inversedBy="dossierPatient", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $patient;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -51,6 +57,18 @@ class DossierPatient
     public function setAntecedant(string $antecedant): self
     {
         $this->antecedant = $antecedant;
+
+        return $this;
+    }
+
+    public function getPatient(): ?Patient
+    {
+        return $this->patient;
+    }
+
+    public function setPatient(Patient $patient): self
+    {
+        $this->patient = $patient;
 
         return $this;
     }
