@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -25,6 +27,16 @@ class Chambre
      * @ORM\Column(type="integer")
      */
     private $nbrPlace;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Hospitalisation", mappedBy="chambre_id")
+     */
+    private $hospitalisation;
+
+    public function __construct()
+    {
+        $this->hospitalisation = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -51,6 +63,37 @@ class Chambre
     public function setNbrPlace(int $nbrPlace): self
     {
         $this->nbrPlace = $nbrPlace;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Hospitalisation[]
+     */
+    public function getHospitalisation(): Collection
+    {
+        return $this->hospitalisation;
+    }
+
+    public function addHospitalisation(Hospitalisation $hospitalisation): self
+    {
+        if (!$this->hospitalisation->contains($hospitalisation)) {
+            $this->hospitalisation[] = $hospitalisation;
+            $hospitalisation->setChambreId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeHospitalisation(Hospitalisation $hospitalisation): self
+    {
+        if ($this->hospitalisation->contains($hospitalisation)) {
+            $this->hospitalisation->removeElement($hospitalisation);
+            // set the owning side to null (unless already changed)
+            if ($hospitalisation->getChambreId() === $this) {
+                $hospitalisation->setChambreId(null);
+            }
+        }
 
         return $this;
     }

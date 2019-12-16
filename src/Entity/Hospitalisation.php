@@ -26,6 +26,12 @@ class Hospitalisation
      */
     private $dateSortie;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Chambre", inversedBy="hospitalisation")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $chambre;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -51,6 +57,18 @@ class Hospitalisation
     public function setDateSortie(\DateTimeInterface $dateSortie): self
     {
         $this->dateSortie = $dateSortie;
+
+        return $this;
+    }
+
+    public function getChambreId(): ?Chambre
+    {
+        return $this->chambre;
+    }
+
+    public function setChambreId(?Chambre $chambre): self
+    {
+        $this->chambre = $chambre;
 
         return $this;
     }
