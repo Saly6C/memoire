@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -35,6 +37,16 @@ class Personnel
      * @ORM\Column(type="string", length=255)
      */
     private $nomPersonnel;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Consultation", mappedBy="personnel")
+     */
+    private $consultations;
+
+    public function __construct()
+    {
+        $this->consultations = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -85,6 +97,37 @@ class Personnel
     public function setNomPersonnel(string $nomPersonnel): self
     {
         $this->nomPersonnel = $nomPersonnel;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Consultation[]
+     */
+    public function getConsultations(): Collection
+    {
+        return $this->consultations;
+    }
+
+    public function addConsultation(Consultation $consultation): self
+    {
+        if (!$this->consultations->contains($consultation)) {
+            $this->consultations[] = $consultation;
+            $consultation->setPersonnel($this);
+        }
+
+        return $this;
+    }
+
+    public function removeConsultation(Consultation $consultation): self
+    {
+        if ($this->consultations->contains($consultation)) {
+            $this->consultations->removeElement($consultation);
+            // set the owning side to null (unless already changed)
+            if ($consultation->getPersonnel() === $this) {
+                $consultation->setPersonnel(null);
+            }
+        }
 
         return $this;
     }
