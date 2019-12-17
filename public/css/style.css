@@ -66,6 +66,11 @@ div.modal-content, .right_content {
     background-color: #1a3f60;
 }
 
+button.btn-action {
+    background-color: #1a3f60;
+    color: #fff;
+}
+
 .user-img {
     margin-top: -5em;
 }
@@ -88,6 +93,6 @@ form > button.btn-login:hover {
 a.list-group-item.active {
     z-index: 2;
     color: #fff;
-    background-color: #c7c7c7;
-    border-color: #c7c7c7;
+    background-color: #1a3f60;
+    border-color: #1a3f60;
 }
