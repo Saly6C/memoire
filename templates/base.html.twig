@@ -7,7 +7,7 @@
 		<!-- header -->
 		<div class=" d-flex text-white py-2 rounded-lg banner">
 			<div class="d-flex col-4 align-items-center pl-0">
-				<i class="fas fa-clinic-medical pl-1 pr-2"></i>
+				<a href="{{ path('clinic_dashboard') }}"><i class="fas fa-clinic-medical pl-1 pr-2 text-white " data-toggle="tooltip" data-placement="top" title="Retourner à l'accueil"></i></a>
 				<span class="font-weight-bold">MaClinique</span>
 			</div>
 			<div class="d-flex col-4 justify-content-center align-items-center font-weight-bold">Bienvenue, {{ app.user.username }}</span></div>
@@ -225,11 +225,11 @@
 					</div>
 				</div>
 			</div> #}
-			<div class="list-group col-3" id="list-tab" role="tablist">
-				<a class="list-group-item list-group-item-action  profile disabled" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">
-					<img src="../images/user-default.jpg" alt="user-img" class="img-fluid rounded-circle p-5">
+			<div class="list-group col-3">
+				<a class="list-group-item list-group-item-action" href="#">
+					<img src="{{asset('/images/user-default.jpg')}}" alt="user-img" class="img-fluid rounded-circle p-5">
 				</a>
-				<a class="list-group-item list-group-item-action active" id="form-consultation" data-toggle="list" href="{{ path('patient_index') }}" role="tab" aria-controls="profile">
+				<a class="list-group-item list-group-item-action active" href="{{ path('patient_index') }}">
 					<div class="d-flex">
 						<span class="col-2">
 							<i class="fas fa-user-md"></i>
@@ -240,7 +240,7 @@
 						</span>
 					</div>
 				</a>	
-				<a class="list-group-item list-group-item-action" id="form-hospitalisation" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">
+				<a class="list-group-item list-group-item-action" href="#list-messages">
 					<div class="d-flex">
 						<span class="col-2">
 							<i class="fas fa-bed"></i>
@@ -251,7 +251,7 @@
 						</span>
 					</div>
 				</a>
-				<a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">
+				<a class="list-group-item list-group-item-action" href="#list-settings">
 					<div class="d-flex">
 						<span class="col-2">
 							<i class="fas fa-address-book"></i>
@@ -262,7 +262,7 @@
 						</span>
 					</div>
 				</a>
-				<a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">
+				<a class="list-group-item list-group-item-action" href="#list-settings">
 					<div class="d-flex">
 						<span class="col-2">
 							<i class="fas fa-users"></i>
@@ -273,7 +273,7 @@
 						</span>
 					</div>
 				</a>
-				<a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">
+				<a class="list-group-item list-group-item-action" href="#list-settings">
 					<div class="d-flex">
 						<span class="col-2">
 							<i class="fas fa-address-book"></i>
@@ -284,7 +284,7 @@
 						</span>
 					</div>
 				</a>
-				<a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="{{path('clinic_logout')}}" role="tab" aria-controls="settings">
+				<a class="list-group-item list-group-item-action" href="{{path('clinic_logout')}}">
 					<div class="d-flex">
 						<span class="col-2">
 							<i class="fas fa-sign-out-alt"></i>
@@ -316,11 +316,11 @@
 						<div class="tab-pane fade" id="modifierParametre" role="tabpanel" aria-labelledby="list-settings-list">modifier Parametre</div> #}
 					{# </div>  #}
 				{% block content %}
-					<div class="tab-content" id="nav-tabContent">
-						<div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="form-consultation">Consultation</div>
+					<div class="">
+						{# <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="form-consultation">Consultation</div>
 						<div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="form-consultation">Hospitalisation</div>
 						<div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="form-hospitalisation">Dossier patient</div>
-						<div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">Patient</div>
+						<div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">Patient</div> #}
 					</div>
 				{% endblock %}
 				</div>
