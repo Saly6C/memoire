@@ -29,7 +29,7 @@ class Chambre
     private $nbrPlace;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Hospitalisation", mappedBy="chambre_id")
+     * @ORM\OneToMany(targetEntity="App\Entity\Hospitalisation", mappedBy="chambre")
      */
     private $hospitalisation;
 
