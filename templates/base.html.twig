@@ -225,11 +225,13 @@
 					</div>
 				</div>
 			</div> #}
-			<div class="list-group col-3">
-				<a class="list-group-item list-group-item-action" href="#">
+			<div class="list-group col-3 ">
+				{# profile #}
+				<a class="list-group-item list-group-item-action active"  href="#" >
 					<img src="{{asset('/images/user-default.jpg')}}" alt="user-img" class="img-fluid rounded-circle p-5">
 				</a>
-				<a class="list-group-item list-group-item-action active" href="{{ path('patient_index') }}">
+				{# consultation #}
+				<a class="list-group-item list-group-item-action" href="#">
 					<div class="d-flex">
 						<span class="col-2">
 							<i class="fas fa-user-md"></i>
@@ -240,6 +242,7 @@
 						</span>
 					</div>
 				</a>	
+				{# hospitalisation #}
 				<a class="list-group-item list-group-item-action" href="#list-messages">
 					<div class="d-flex">
 						<span class="col-2">
@@ -251,6 +254,7 @@
 						</span>
 					</div>
 				</a>
+				{# dossier patient #}
 				<a class="list-group-item list-group-item-action" href="#list-settings">
 					<div class="d-flex">
 						<span class="col-2">
@@ -262,7 +266,8 @@
 						</span>
 					</div>
 				</a>
-				<a class="list-group-item list-group-item-action" href="#list-settings">
+				{# patient #}
+				<a class="list-group-item list-group-item-action" href="{{ path('patient_index') }}">
 					<div class="d-flex">
 						<span class="col-2">
 							<i class="fas fa-users"></i>
@@ -273,6 +278,7 @@
 						</span>
 					</div>
 				</a>
+				{# parametre #}
 				<a class="list-group-item list-group-item-action" href="#list-settings">
 					<div class="d-flex">
 						<span class="col-2">
@@ -284,7 +290,8 @@
 						</span>
 					</div>
 				</a>
-				<a class="list-group-item list-group-item-action" href="{{path('clinic_logout')}}">
+				{# deconnection #}
+				<a class="list-group-item list-group-item-action" href="{{path('clinic_logout')}}" data-toggle="tooltip" data-placement="top" title="Cliquez pour vous déconnectez">
 					<div class="d-flex">
 						<span class="col-2">
 							<i class="fas fa-sign-out-alt"></i>
