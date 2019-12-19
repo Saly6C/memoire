@@ -190,4 +190,15 @@ class Patient
 
         return $this;
     }
+
+    /**
+     * Generates the magic method
+     * 
+     */
+    public function __toString(){
+        // to show the name of the Patient in the select
+        return $this->nomPatient;
+        // to show the id of the Patient in the select
+        // return $this->id;
+    }
 }
