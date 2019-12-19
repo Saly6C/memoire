@@ -14,7 +14,7 @@ i.fa-clinic-medical {
     font-size: 4em;
 }
 
-div.menu, div.banner, div.footer, .connexion {
+div.menu, div.banner, div.footer, .connexion, .right_content  {
     background-color: #1a3f60;
     /* background-color: #2f5779; */
     box-shadow: 0 2px 17px rgba(238, 233, 233, 0.945);
@@ -91,8 +91,12 @@ form > button.btn-login:hover {
 }
 
 a.list-group-item.active {
-    z-index: 2;
+    background-color:#1a3f60;
+    border: 1px solid rgba(0,0,0,.125);;
+}
+
+a.list-group-item-action:hover {
+   
+    background-color:#1a3f60;
     color: #fff;
-    background-color: #1a3f60;
-    border-color: #1a3f60;
 }
