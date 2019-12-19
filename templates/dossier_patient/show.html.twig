@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DossierPatient{% endblock %}
+
+{% block body %}
+    <h1>DossierPatient</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ dossier_patient.id }}</td>
+            </tr>
+            <tr>
+                <th>NomMaladie</th>
+                <td>{{ dossier_patient.nomMaladie }}</td>
+            </tr>
+            <tr>
+                <th>Antecedant</th>
+                <td>{{ dossier_patient.antecedant }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('dossier_patient_index') }}">back to list</a>
+
+    <a href="{{ path('dossier_patient_edit', {'id': dossier_patient.id}) }}">edit</a>
+
+    {{ include('dossier_patient/_delete_form.html.twig') }}
+{% endblock %}

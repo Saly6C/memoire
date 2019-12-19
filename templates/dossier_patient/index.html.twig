@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DossierPatient index{% endblock %}
+
+{% block body %}
+{{dump()}}
+    <h1>DossierPatient index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NomPatient</th>
+                <th>NomMaladie</th>
+                <th>Antecedant</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for dossier_patient in dossier_patients %}
+            <tr>
+                <td>{{ dossier_patient.id }}</td>
+                <td>{{ dossier_patient.patient.nomPatient }}</td>
+                <td>{{ dossier_patient.nomMaladie }}</td>
+                <td>{{ dossier_patient.antecedant }}</td>
+                <td>
+                    <a href="{{ path('dossier_patient_show', {'id': dossier_patient.id}) }}">show</a>
+                    <a href="{{ path('dossier_patient_edit', {'id': dossier_patient.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('dossier_patient_new') }}">Create new</a>
+{% endblock %}
