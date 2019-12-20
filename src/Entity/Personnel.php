@@ -149,4 +149,8 @@ class Personnel
 
         return $this;
     }
+
+    public function __toString() {
+        return $this->nomPersonnel;
+    }
 }
