@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
+{% block title %}Nouvelle Consultation{% endblock %}
+{% block content %} 
 
-{% block title %}New Consultation{% endblock %}
+    <div class="container py-2">
+        <h4 class="text-center">Créer une nouvelle consultation</h4>
 
-{% block body %}
-    <h1>Create new Consultation</h1>
+        {{ include('consultation/_form.html.twig') }}
 
-    {{ include('consultation/_form.html.twig') }}
-
-    <a href="{{ path('consultation_index') }}">back to list</a>
+        <a href="{{ path('consultation_index') }}"><i class="fa fa-arrow-left" aria-hidden="true">Back</i></a>
+    </div>
 {% endblock %}
