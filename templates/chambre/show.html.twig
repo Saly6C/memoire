@@ -2,29 +2,31 @@
 
 {% block title %}Chambre{% endblock %}
 
-{% block body %}
-    <h1>Chambre</h1>
+{% block content %}
+    <div class="container py-2">
+        <h4 class="text-center">Informations Chambre</h4>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ chambre.id }}</td>
-            </tr>
-            <tr>
-                <th>NomChambre</th>
-                <td>{{ chambre.nomChambre }}</td>
-            </tr>
-            <tr>
-                <th>NbrPlace</th>
-                <td>{{ chambre.nbrPlace }}</td>
-            </tr>
-        </tbody>
-    </table>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ chambre.id }}</td>
+                </tr>
+                <tr>
+                    <th>NomChambre</th>
+                    <td>{{ chambre.nomChambre }}</td>
+                </tr>
+                <tr>
+                    <th>NbrPlace</th>
+                    <td>{{ chambre.nbrPlace }}</td>
+                </tr>
+            </tbody>
+        </table>
 
-    <a href="{{ path('chambre_index') }}">back to list</a>
+        <a href="{{ path('chambre_index') }}"><i class="fa fa-arrow-left" aria-hidden="true">Back</i></a>
 
-    <a href="{{ path('chambre_edit', {'id': chambre.id}) }}">edit</a>
+        <a href="{{ path('chambre_edit', {'id': chambre.id}) }}">Modifier</a>
 
-    {{ include('chambre/_delete_form.html.twig') }}
+        {{ include('chambre/_delete_form.html.twig') }}
+    </div>
 {% endblock %}
