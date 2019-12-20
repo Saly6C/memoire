@@ -231,7 +231,7 @@
 					<img src="{{asset('/images/user-default.jpg')}}" alt="user-img" class="img-fluid rounded-circle p-5">
 				</a>
 				{# consultation #}
-				<a class="list-group-item list-group-item-action" href="#">
+				<a class="list-group-item list-group-item-action" href="{{ path('consultation_index') }}">
 					<div class="d-flex">
 						<span class="col-2">
 							<i class="fas fa-user-md"></i>
@@ -243,7 +243,7 @@
 					</div>
 				</a>	
 				{# hospitalisation #}
-				<a class="list-group-item list-group-item-action" href="#list-messages">
+				<a class="list-group-item list-group-item-action" href="{{ path('hospitalisation_index') }}">
 					<div class="d-flex">
 						<span class="col-2">
 							<i class="fas fa-bed"></i>
@@ -321,6 +321,18 @@
 							<i class="fas fa-calendar"></i>
 						</span>
 						<span class="col-8 d-flex justify-content-center font-weight-bold">Rendez-vous</span>
+						<span class="col-2 patient d-flex justify-content-center align-items-center">
+							<i class="test fas fa-angle-right"></i>
+						</span>
+					</div>
+				</a>
+				{# facturation #}
+				<a class="list-group-item list-group-item-action" href="{{ path('facturation_index') }}">
+					<div class="d-flex">
+						<span class="col-2">
+							<i class="fas fa-calendar"></i>
+						</span>
+						<span class="col-8 d-flex justify-content-center font-weight-bold">Facturation</span>
 						<span class="col-2 patient d-flex justify-content-center align-items-center">
 							<i class="test fas fa-angle-right"></i>
 						</span>
