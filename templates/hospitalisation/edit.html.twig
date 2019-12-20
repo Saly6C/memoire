@@ -1,13 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Hospitalisation{% endblock %}
+{% block title %}Modifier Hospitalisation{% endblock %}
 
-{% block body %}
-    <h1>Edit Hospitalisation</h1>
+{% block content %}
+    <div class="container py-2">
+        <h1>Modifier une Hospitalisation</h1>
 
-    {{ include('hospitalisation/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('hospitalisation_index') }}">back to list</a>
+        {{ include('hospitalisation/_form.html.twig', {'button_label': 'Update'}) }}
 
-    {{ include('hospitalisation/_delete_form.html.twig') }}
+        <a href="{{ path('hospitalisation_index') }}"><i class="fa fa-arrow-left" aria-hidden="true">Back</i></a>
+
+        {{ include('hospitalisation/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

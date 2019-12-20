@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Hospitalisation{% endblock %}
+{% block title %}Nouvelle Hospitalisation{% endblock %}
 
-{% block body %}
-    <h1>Create new Hospitalisation</h1>
+{% block content %}
+    <div class="container py-2">
+        <h4 class="text-center">Créer une nouvelle Hospitalisation</h4>
 
-    {{ include('hospitalisation/_form.html.twig') }}
+        {{ include('hospitalisation/_form.html.twig') }}
 
-    <a href="{{ path('hospitalisation_index') }}">back to list</a>
+        <a href="{{ path('hospitalisation_index') }}"><i class="fa fa-arrow-left" aria-hidden="true">Back</i></a>
+    </div>
 {% endblock %}
