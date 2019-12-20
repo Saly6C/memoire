@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
+{% block title %}Ajouter Facturation{% endblock %}
+{% block content %}
+    
+    <div class="container py-2">
+            <h4 class="text-center">Créer une nouvelle facturation</h4>
 
-{% block title %}New Facturation{% endblock %}
+        {{ include('facturation/_form.html.twig') }}
 
-{% block body %}
-    <h1>Create new Facturation</h1>
-
-    {{ include('facturation/_form.html.twig') }}
-
-    <a href="{{ path('facturation_index') }}">back to list</a>
+        <a href="{{ path('facturation_index') }}"><i class="fa fa-arrow-left" aria-hidden="true">Back</i></a>
+    </div>
 {% endblock %}
