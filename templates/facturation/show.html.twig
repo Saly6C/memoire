@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Facturation{% endblock %}
+
+{% block body %}
+    <h1>Facturation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ facturation.id }}</td>
+            </tr>
+            <tr>
+                <th>MontantFacture</th>
+                <td>{{ facturation.montantFacture }}</td>
+            </tr>
+            <tr>
+                <th>PriseEnCharge</th>
+                <td>{{ facturation.priseEnCharge ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>MontantPaye</th>
+                <td>{{ facturation.montantPaye }}</td>
+            </tr>
+            <tr>
+                <th>NomAssurance</th>
+                <td>{{ facturation.nomAssurance }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('facturation_index') }}">back to list</a>
+
+    <a href="{{ path('facturation_edit', {'id': facturation.id}) }}">edit</a>
+
+    {{ include('facturation/_delete_form.html.twig') }}
+{% endblock %}
