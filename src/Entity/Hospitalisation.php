@@ -73,12 +73,12 @@ class Hospitalisation
         return $this;
     }
 
-    public function getChambreId(): ?Chambre
+    public function getChambre(): ?Chambre
     {
         return $this->chambre;
     }
 
-    public function setChambreId(?Chambre $chambre): self
+    public function setChambre(?Chambre $chambre): self
     {
         $this->chambre = $chambre;
 
