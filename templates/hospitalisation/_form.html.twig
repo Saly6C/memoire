@@ -1,4 +1,27 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Enregistrer') }}</button>
-{{ form_end(form) }}
+    {# {{ form_widget(form) }} #}
+    <div class="d-flex">
+        <div class="col-5">
+            {{ form_row(form.dateHospitalisation) }}
+        </div>
+        <div class="col-5">
+            {{ form_row(form.dateSortie) }}
+        </div> 
+        <div class="col-2">
+            {{ form_row(form.chambre) }}
+        </div>  
+    </div>
+    <div class="d-flex">
+        <div class="col-6">{{ form_row(form.patient) }}</div>
+        <div class="col-6">{{ form_row(form.nomDemandeur) }}</div>
+    </div>
+    <div class="d-flex">
+        <div class="col-6">{{ form_row(form.pieceDuMalade) }}</div>
+        <div class="col-6">{{ form_row(form.pieceDuDemandeur) }}</div>
+    </div>
+    <div class="d-flex">
+        <div class="col-6">{{ form_row(form.numeroPieceMalade) }}</div>
+        <div class="col-6">{{ form_row(form.numeroPieceDemandeur) }}</div>
+    </div>
+    <button class="btn btn-action">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }} 
