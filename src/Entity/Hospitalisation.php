@@ -40,9 +40,34 @@ class Hospitalisation
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Facturation", inversedBy="hospitalisation", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $facturation;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nomDemandeur;
+
+    /**
+     * @ORM\Column(type="array")
+     */
+    private $pieceDuMalade = [];
+
+    /**
+     * @ORM\Column(type="array")
+     */
+    private $pieceDuDemandeur = [];
+
+    /**
+     * @ORM\Column(type="bigint")
+     */
+    private $numeroPieceMalade;
+
+    /**
+     * @ORM\Column(type="bigint")
+     */
+    private $numeroPieceDemandeur;
 
     public function getId(): ?int
     {
@@ -107,5 +132,69 @@ class Hospitalisation
         $this->facturation = $facturation;
 
         return $this;
+    }
+
+    public function getNomDemandeur(): ?string
+    {
+        return $this->nomDemandeur;
+    }
+
+    public function setNomDemandeur(string $nomDemandeur): self
+    {
+        $this->nomDemandeur = $nomDemandeur;
+
+        return $this;
+    }
+
+    public function getPieceDuMalade(): ?array
+    {
+        return $this->pieceDuMalade;
+    }
+
+    public function setPieceDuMalade(array $pieceDuMalade): self
+    {
+        $this->pieceDuMalade = $pieceDuMalade;
+
+        return $this;
+    }
+
+    public function getPieceDuDemandeur(): ?array
+    {
+        return $this->pieceDuDemandeur;
+    }
+
+    public function setPieceDuDemandeur(array $pieceDuDemandeur): self
+    {
+        $this->pieceDuDemandeur = $pieceDuDemandeur;
+
+        return $this;
+    }
+
+    public function getNumeroPieceMalade(): ?int
+    {
+        return $this->numeroPieceMalade;
+    }
+
+    public function setNumeroPieceMalade(int $numeroPieceMalade): self
+    {
+        $this->numeroPieceMalade = $numeroPieceMalade;
+
+        return $this;
+    }
+
+    public function getNumeroPieceDemandeur(): ?int
+    {
+        return $this->numeroPieceDemandeur;
+    }
+
+    public function setNumeroPieceDemandeur(int $numeroPieceDemandeur): self
+    {
+        $this->numeroPieceDemandeur = $numeroPieceDemandeur;
+
+        return $this;
+    }
+
+    public function __toString() {
+        return $this->patient;
     }
 }
