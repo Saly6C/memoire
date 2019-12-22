@@ -6,6 +6,7 @@ use App\Entity\Hospitalisation;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class HospitalisationType extends AbstractType
 {
@@ -16,7 +17,29 @@ class HospitalisationType extends AbstractType
             ->add('dateSortie')
             ->add('chambre')
             ->add('patient')
-            ->add('facturation')
+            ->add('pieceDuMalade', ChoiceType::class, [
+                'label' => 'Piece Malade',
+                'expanded' => true,
+                'multiple' => true, 
+                'choices' => [
+                    'CNI' => 'CNI ',
+                    'Passport' => 'Passport'
+                ]
+            ])
+            ->add('numeroPieceMalade')
+            ->add('nomDemandeur')
+            ->add('pieceDuDemandeur', ChoiceType::class, [
+                'label' => 'Piece Demandeur',
+                'expanded' => true,
+                'multiple' => true, 
+                'choices' => [
+                    'CNI' => 'CNI ',
+                    'Passport' => 'Passport'
+                ]
+            ])
+            ->add('numeroPieceDemandeur')
+            
+            // ->add('facturation')
         ;
     }
 
