@@ -4,15 +4,17 @@
 
 {% block body %}
 
-    {{ form_start(form) }}
-    {{ form_row(form.email, {'attr': {'placeholder': 'adresse email'}}) }}
-    {{ form_row(form.username, {'attr': {'placeholder':'nom utilisateur'}}) }}
-    {{ form_row(form.password, {'attr': {'placeholder':'mot de passe'}}) }}
-    {{ form_row(form.confirmPassword, {'attr': {'placeholder':'confirmer le mot de passe'}}) }}
-    {{ form_row(form.roles) }}
+    <div class="container mt-5">
+        {{ form_start(form) }}
+        {{ form_row(form.email, {'attr': {'placeholder': 'adresse email'}}) }}
+        {{ form_row(form.username, {'attr': {'placeholder':'nom utilisateur'}}) }}
+        {{ form_row(form.password, {'attr': {'placeholder':'mot de passe'}}) }}
+        {{ form_row(form.confirmPassword, {'attr': {'placeholder':'confirmer le mot de passe'}}) }}
+        {{ form_row(form.roles) }}
 
 
-    <button type="submit" class="btn btn-success">Ajouter utilisateur</button>
-    {{ form_end(form) }}
+        <button type="submit" class="btn btn-success">Ajouter utilisateur</button>
+        {{ form_end(form) }}
+    </div>
 
 {% endblock %}
