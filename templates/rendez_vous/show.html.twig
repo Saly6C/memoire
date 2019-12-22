@@ -2,11 +2,11 @@
 
 {% block title %}RendezVous{% endblock %}
 
-{% block body %}
+{% block content %}
     <div class="container py-2">
 
         <h4 class="text-center">Informations Rendez-Vous</h4>
-        <table class="table">
+        <table class="table table-hover">
             <tbody>
                 <tr>
                     <th>Id</th>
@@ -16,6 +16,7 @@
                     <th>DateRV</th>
                     <td>{{ rendez_vous.dateRV ? rendez_vous.dateRV|date('Y-m-d') : '' }}</td>
                 </tr>
+                
             </tbody>
         </table>
 
