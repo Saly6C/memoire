@@ -13,6 +13,8 @@ class RendezVousType extends AbstractType
     {
         $builder
             ->add('dateRV')
+            ->add('nomClient')
+            ->add('email')
         ;
     }
 
