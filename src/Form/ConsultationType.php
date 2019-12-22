@@ -16,7 +16,7 @@ class ConsultationType extends AbstractType
             ->add('diagnostic')
             ->add('prochainRV')
             ->add('autre')
-            ->add('facturation')
+            // ->add('facturation')
             ->add('patient')
             ->add('rendezVous')
             ->add('personnel')
