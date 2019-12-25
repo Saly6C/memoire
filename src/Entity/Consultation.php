@@ -49,7 +49,7 @@ class Consultation
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\RendezVous", inversedBy="consultation")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $rendezVous;
 
@@ -163,5 +163,9 @@ class Consultation
         $this->personnel = $personnel;
 
         return $this;
+    }
+
+    public function __toString() {
+        return (string)$this->patient;
     }
 }
