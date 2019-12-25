@@ -4,12 +4,12 @@
 
 {% block content %}
     <div class="container py-2">
-        <h1>Modifier Service</h1>
+        <h4 class="text-center mt-2">Modifier Service</h4>
 
-        {{ include('service/_form.html.twig', {'button_label': 'Update'}) }}
-
-        <a href="{{ path('service_index') }}"><i class="fa fa-arrow-left" aria-hidden="true">Back</i></a>
+        {{ include('service/_form.html.twig', {'button_label': 'Modifier'}) }}
 
         {{ include('service/_delete_form.html.twig') }}
+
+        <a href="{{ path('service_index') }}"><i class="fa fa-arrow-left" aria-hidden="true">Back</i></a>
     </div>
 {% endblock %}
