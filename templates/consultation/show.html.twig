@@ -3,18 +3,18 @@
 {% block title %}Consultation{% endblock %}
 
 {% block content%}
-    <h1>Consultation</h1>
+    
     <div class="container py-2">
         <h4 class="text-center">Informations Consultation</h4>
         
-        <table class="table">
+        <table class="table table-hover">
             <tbody>
                 <tr>
                     <th>Id</th>
                     <td>{{ consultation.id }}</td>
                 </tr>
                 <tr>
-                    <th>DateConsultation</th>
+                    <th>Date Consultation</th>
                     <td>{{ consultation.dateConsultation ? consultation.dateConsultation|date('Y-m-d H:i:s') : '' }}</td>
                 </tr>
                 <tr>
@@ -22,20 +22,32 @@
                     <td>{{ consultation.diagnostic }}</td>
                 </tr>
                 <tr>
-                    <th>ProchainRV</th>
+                    <th>Prochain Rendez-Vous</th>
                     <td>{{ consultation.prochainRV }}</td>
                 </tr>
                 <tr>
                     <th>Autre</th>
                     <td>{{ consultation.autre }}</td>
                 </tr>
+                <tr>
+                    <th>Patient</th>
+                    <td>{{ consultation.patient }}</td>
+                </tr>
+                <tr>
+                    <th>Rendez-Vous</th>
+                    <td>{{ consultation.rendezVous }}</td>
+                </tr>
+                <tr>
+                    <th>Personnel</th>
+                    <td>{{ consultation.personnel }}</td>
+                </tr>
             </tbody>
         </table>
 
-        <a href="{{ path('consultation_index') }}"><i class="fa fa-arrow-left" aria-hidden="true">Back</i></a>
-
-        <a href="{{ path('consultation_edit', {'id': consultation.id}) }}">Modifier</a>
-
-        {{ include('consultation/_delete_form.html.twig') }}
+        <div class="d-flex  align-items-center mb-4">
+            <a href="{{ path('consultation_index') }}" class="mr-2"><i class="fa fa-arrow-left" aria-hidden="true">Back</i></a>
+            {{ include('consultation/_delete_form.html.twig') }}
+            <a href="{{ path('consultation_edit', {'id': consultation.id}) }}" class="ml-2"><button class="btn btn-action">Modifier</button></a> 
+        </div>
     </div>
 {% endblock %}

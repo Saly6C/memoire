@@ -195,6 +195,6 @@ class Hospitalisation
     }
 
     public function __toString() {
-        return $this->patient;
+        return $this->nomDemandeur;
     }
 }
