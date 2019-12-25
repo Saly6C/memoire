@@ -4,12 +4,12 @@
 
 {% block content %}
     <div class="container py-2">
-        <h1>Modifier un Patient</h1>
+        <h4 class="text-center mt-2" >Modifier un Patient</h4>
 
-        {{ include('patient/_form.html.twig', {'button_label': 'Update'}) }}
-
-        <a href="{{ path('patient_index') }}"><i class="fa fa-arrow-left" aria-hidden="true">Back</i></a>
+        {{ include('patient/_form.html.twig', {'button_label': 'Modifier'}) }}
 
         {{ include('patient/_delete_form.html.twig') }}
+               
+        <a href="{{ path('patient_index') }}"><i class="fa fa-arrow-left" aria-hidden="true">Back</i></a>
     </div>
 {% endblock %}
