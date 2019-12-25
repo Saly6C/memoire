@@ -1,5 +1,10 @@
 <form method="post" action="{{ path('consultation_delete', {'id': consultation.id}) }}" onsubmit="return confirm('Etes-vous sûr de bien vouloir supprimer cet enregistrement?');">
     <input type="hidden" name="_method" value="DELETE">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ consultation.id) }}">
-    <button class="btn btn-action my-2">Supprimer</button>
+    {# <button class="btn btn-action my-2">Supprimer</button> #}
+    {% for role in app.user.roles  %}
+        {% if role == "Admin" %}
+            <button class="btn btn-primary btn-action my-2">Supprimer</button>
+        {% endif %}
+    {% endfor %}
 </form>
