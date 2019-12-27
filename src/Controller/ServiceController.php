@@ -38,6 +38,7 @@ class ServiceController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($service);
             $entityManager->flush();
+            $this->addFlash('success', 'Service créé avec succès!');
 
             return $this->redirectToRoute('service_index');
         }
@@ -68,6 +69,7 @@ class ServiceController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'Service modifié avec succès!');
 
             return $this->redirectToRoute('service_index');
         }
@@ -87,6 +89,8 @@ class ServiceController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($service);
             $entityManager->flush();
+            $this->addFlash('success', 'Service supprimé avec succès!');
+
         }
 
         return $this->redirectToRoute('service_index');
