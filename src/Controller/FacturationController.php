@@ -38,6 +38,8 @@ class FacturationController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($facturation);
             $entityManager->flush();
+            $this->addFlash('success', 'Facturation créée avec succès!');
+
 
             return $this->redirectToRoute('facturation_index');
         }
@@ -68,6 +70,7 @@ class FacturationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'Facturation modifiée avec succès!');
 
             return $this->redirectToRoute('facturation_index');
         }
@@ -87,6 +90,8 @@ class FacturationController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($facturation);
             $entityManager->flush();
+            $this->addFlash('success', 'Facturation supprimée avec succès!');
+
         }
 
         return $this->redirectToRoute('facturation_index');
