@@ -11,14 +11,16 @@
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Date de Rendez-Vous</th>
+                    <th scope="col">Email demandeur</th>
                     <th scope="col">actions</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="rendezVousList">
             {% for rendez_vous in rendez_vouses %}
                 <tr>
                     <td>{{ rendez_vous.id }}</td>
                     <td>{{ rendez_vous.dateRV ? rendez_vous.dateRV|date('Y-m-d') : '' }}</td>
+                    <td>{{ rendez_vous.email }}</td>
                     <td>
                         <a href="{{ path('rendez_vous_show', {'id': rendez_vous.id}) }}"><i class="fas fa-eye text-dark"></i></a>
                         <a href="{{ path('rendez_vous_edit', {'id': rendez_vous.id}) }}"><i class="fas fa-edit text-dark"></i></a>
