@@ -36,6 +36,10 @@
 
         {{ include('patient/_delete_form.html.twig') }}
 
-        <a href="{{ path('patient_index') }}"><i class="fa fa-arrow-left" aria-hidden="true">Back</i></a>
+        {# <a href="{{ path('patient_index') }}"><i class="fa fa-arrow-left" aria-hidden="true">Back</i></a> #}
+        <a href="{{ path('patient_index') }}" class="d-flex pb-2">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            <h6 class="ml-2 text-dark">Back</h6>
+        </a>
     </div>
 {% endblock %}

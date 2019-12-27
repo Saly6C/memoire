@@ -61,7 +61,10 @@
             <button class="btn btn-action">Modifier</button>
         </a>
         {{ include('hospitalisation/_delete_form.html.twig') }}
-        <a href="{{ path('hospitalisation_index') }}"><i class="fa fa-arrow-left" aria-hidden="true">Back</i></a>
-
+        {# <a href="{{ path('hospitalisation_index') }}"><i class="fa fa-arrow-left" aria-hidden="true">Back</i></a> #}
+        <a href="{{ path('hospitalisation_index') }}" class="d-flex pb-2">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            <h6 class="ml-2 text-dark">Back</h6>
+        </a>
     </div>
 {% endblock %}

@@ -8,6 +8,10 @@
         <h4 class="text-center">Créer un nouveau Rendez-Vous</h4>
         {{ include('rendez_vous/_form.html.twig') }}
 
-        <a href="{{ path('rendez_vous_index') }}"><i class="fa fa-arrow-left" aria-hidden="true">Back</i></a>
+        {# <a href="{{ path('rendez_vous_index') }}"><i class="fa fa-arrow-left" aria-hidden="true">Back</i></a> #}
+        <a href="{{ path('rendez_vous_index') }}" class="d-flex pb-2">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            <h6 class="ml-2 text-dark">Back</h6>
+        </a>
     </div>
 {% endblock %}

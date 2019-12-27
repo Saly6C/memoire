@@ -45,7 +45,11 @@
         </table>
 
         <div class="d-flex  align-items-center mb-4">
-            <a href="{{ path('consultation_index') }}" class="mr-2"><i class="fa fa-arrow-left" aria-hidden="true">Back</i></a>
+            {# <a href="{{ path('consultation_index') }}" class="mr-2"><i class="fa fa-arrow-left" aria-hidden="true">Back</i></a> #}
+            <a href="{{ path('consultation_index') }}" class="d-flex  mr-2">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                <h6 class="ml-2 text-dark">Back</h6>
+            </a>
             {{ include('consultation/_delete_form.html.twig') }}
             <a href="{{ path('consultation_edit', {'id': consultation.id}) }}" class="ml-2"><button class="btn btn-action">Modifier</button></a> 
         </div>
