@@ -170,7 +170,7 @@
 			<div class="col-9  px-0 right_content rounded">
 				<div class="m-2 bg-white">
 					{% for message in app.flashes('success') %}
-						<div class="alert alert-success">
+						<div class="alert alert-success" id="msgFlash">
 							{{ message }}
 						</div>
 					{% endfor %}
