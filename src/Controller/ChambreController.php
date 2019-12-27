@@ -38,6 +38,7 @@ class ChambreController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($chambre);
             $entityManager->flush();
+            $this->addFlash('success', 'Chambre créée avec succès!');
 
             return $this->redirectToRoute('chambre_index');
         }
@@ -68,6 +69,7 @@ class ChambreController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'Chambre modifiée avec succès!');
 
             return $this->redirectToRoute('chambre_index');
         }
@@ -87,6 +89,8 @@ class ChambreController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($chambre);
             $entityManager->flush();
+            $this->addFlash('success', 'Chambre supprimée avec succès!');
+
         }
 
         return $this->redirectToRoute('chambre_index');
