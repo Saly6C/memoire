@@ -1,7 +1,16 @@
-$(".consultation").on( "click", function() {
-    $('#operationsConsultation').toggle(1000);
-    // $(this).find($(".test")).toggleClass("fa-angle-right fa-angle-down");
+$(document).ready(function(){
+    $("#rechercher").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#consultationList tr, #hospitalisationList tr, #chambreList tr, #dossierPatientList tr, #facturationList tr, #patientList tr, #personnelList tr, #rendezVousList tr, #serviceList tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
 });
+
+// $(".consultation").on( "click", function() {
+//     $('#operationsConsultation').toggle(1000);
+//     // $(this).find($(".test")).toggleClass("fa-angle-right fa-angle-down");
+// });
 
 // $(".hospitalisation").on( "click", function() {
 //     $('#operationsHospitalisation').toggle(1000);
