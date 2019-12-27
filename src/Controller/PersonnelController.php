@@ -38,6 +38,7 @@ class PersonnelController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($personnel);
             $entityManager->flush();
+            $this->addFlash('success', 'Personnel enregistré avec succès!');
 
             return $this->redirectToRoute('personnel_index');
         }
@@ -68,6 +69,7 @@ class PersonnelController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'Personnel modifié avec succès!');
 
             return $this->redirectToRoute('personnel_index');
         }
@@ -87,6 +89,8 @@ class PersonnelController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($personnel);
             $entityManager->flush();
+            $this->addFlash('success', 'Personnel supprimé avec succès!');
+
         }
 
         return $this->redirectToRoute('personnel_index');
