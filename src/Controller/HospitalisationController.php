@@ -38,6 +38,7 @@ class HospitalisationController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($hospitalisation);
             $entityManager->flush();
+            $this->addFlash('success', 'Hospitalisation enregistrée avec succès!');
 
             return $this->redirectToRoute('hospitalisation_index');
         }
@@ -68,7 +69,7 @@ class HospitalisationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            $this->addFlash('success', 'Hospitalisation modifiée avec succès!');
             return $this->redirectToRoute('hospitalisation_index');
         }
 
@@ -87,6 +88,7 @@ class HospitalisationController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($hospitalisation);
             $entityManager->flush();
+            $this->addFlash('success', 'Hospitalisation supprimée avec succès!');
         }
 
         return $this->redirectToRoute('hospitalisation_index');
