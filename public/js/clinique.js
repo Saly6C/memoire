@@ -5,7 +5,15 @@ $(document).ready(function(){
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
     });
+
+    setTimeout(() => {
+       $ ('#msgFlash').hide();
+    }, 3000);
 });
+
+
+
+
 
 // $(".consultation").on( "click", function() {
 //     $('#operationsConsultation').toggle(1000);
