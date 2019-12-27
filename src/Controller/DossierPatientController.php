@@ -38,6 +38,7 @@ class DossierPatientController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($dossierPatient);
             $entityManager->flush();
+            $this->addFlash('success', 'Dossier patient enregistré avec succès!');
 
             return $this->redirectToRoute('dossier_patient_index');
         }
@@ -68,6 +69,7 @@ class DossierPatientController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'Dossier patient modifier avec succès!');
 
             return $this->redirectToRoute('dossier_patient_index');
         }
@@ -87,6 +89,8 @@ class DossierPatientController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($dossierPatient);
             $entityManager->flush();
+            $this->addFlash('success', 'Dossier patient supprimé avec succès!');
+
         }
 
         return $this->redirectToRoute('dossier_patient_index');
