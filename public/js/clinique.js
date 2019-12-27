@@ -9,6 +9,12 @@ $(document).ready(function(){
     setTimeout(() => {
        $ ('#msgFlash').hide();
     }, 3000);
+
+    $('.js-datepicker').datepicker({
+        // format: 'yyyy-mm-dd' ,
+        // locale
+        format: "dd.mm.yyyy hh:ii"
+    });
 });
 
 
