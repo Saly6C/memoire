@@ -13,8 +13,12 @@
                     <td>{{ rendez_vous.id }}</td>
                 </tr>
                 <tr>
-                    <th>DateRV</th>
+                    <th>Date RV</th>
                     <td>{{ rendez_vous.dateRV ? rendez_vous.dateRV|date('Y-m-d') : '' }}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{ rendez_vous.email }}</td>
                 </tr>
                 
             </tbody>
