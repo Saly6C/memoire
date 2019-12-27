@@ -38,6 +38,7 @@ class ConsultationController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($consultation);
             $entityManager->flush();
+            $this->addFlash('success', 'Consultation enregistrée avec succès!');
 
             return $this->redirectToRoute('consultation_index');
         }
@@ -68,7 +69,7 @@ class ConsultationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            $this->addFlash('success', 'Consultation modifiée avec succès!');
             return $this->redirectToRoute('consultation_index');
         }
 
@@ -87,6 +88,7 @@ class ConsultationController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($consultation);
             $entityManager->flush();
+            $this->addFlash('success', 'Consultation supprimée avec succès!');
         }
 
         return $this->redirectToRoute('consultation_index');
