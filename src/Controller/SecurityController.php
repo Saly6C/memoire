@@ -29,6 +29,14 @@ class SecurityController extends AbstractController
         if($form->isSubmitted() && $form->isValid())  {
             $hashpdw = $encoder->encodePassword($user,$user->getPassword());
             $user->setPassword($hashpdw);
+            $stat= $user->getStatus();
+
+            if($stat == true) {
+                $user->setStatus('actif');
+            }else {
+                $user->setStatus('inactif');
+            }
+
             $mr =  $manager->getManager();
             $mr->persist($user);
             $mr->flush();

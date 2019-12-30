@@ -11,9 +11,14 @@ $(document).ready(function(){
     }, 3000);
 
     $('.js-datepicker').datepicker({
-        // format: 'yyyy-mm-dd' ,
-        // locale
-        format: "dd.mm.yyyy hh:ii"
+        format: 'yyyy-mm-dd' ,
+        startDate: 'd',
+        todayHighlight: true,    
+    });
+
+    $("#souscription_status").click(function(){            
+        $("#souscription_status").attr("disabled", "true").attr("value", 'compte-inactif');
+        $("#souscription_status + .form-check-label").text('Compte désactivé')
     });
 });
 

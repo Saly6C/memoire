@@ -20,6 +20,10 @@ div.menu, div.banner, div.footer, .connexion, .right_content  {
     box-shadow: 0 2px 17px rgba(238, 233, 233, 0.945);
 }
 
+div > img + h6 {
+    font-size: 2rem;
+}
+
 
 
 #menu-consultation {

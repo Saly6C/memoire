@@ -1,15 +1,17 @@
 {% extends '_partial.html.twig' %}
 
-{% block title %}Hello SecurityController!{% endblock %}
+{% block title %}Formulaire de Souscription{% endblock %}
 
 {% block body %}
-
+{{dump()}}
     <div class="container mt-5">
         {{ form_start(form) }}
         {{ form_row(form.email, {'attr': {'placeholder': 'adresse email'}}) }}
         {{ form_row(form.username, {'attr': {'placeholder':'nom utilisateur'}}) }}
         {{ form_row(form.password, {'attr': {'placeholder':'mot de passe'}}) }}
         {{ form_row(form.confirmPassword, {'attr': {'placeholder':'confirmer le mot de passe'}}) }}
+        {# {{ form_row(form.status, {'attr': {'value':'compte_actif'}}) }} #}
+        {{ form_row(form.status) }}
         {{ form_row(form.roles) }}
 
 
