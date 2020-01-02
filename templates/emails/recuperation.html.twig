@@ -1,0 +1,11 @@
+{# templates/emails/registration.html.twig #}
+<h3>Mot de passe oublié!</h3>
+
+Bonjour!
+{# example, assuming you have a route named "login" #}
+Cliquez sur ce lien pour changer votre mot de passe: <a href="{{ url('renew_password') }}">Changer de mot de passe</a>.
+
+Thanks!
+
+{# Makes an absolute URL to the /images/logo.png file #}
+<img src="{{ absolute_url(asset('images/logo.png')) }}">
