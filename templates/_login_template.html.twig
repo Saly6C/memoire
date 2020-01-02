@@ -1,0 +1,19 @@
+{% extends "_partial.html.twig" %}
+
+{% block body %}
+<!-- <div class="container mt-4"> -->
+{{dump()}}
+<div class="modal-dialog text-center">
+  <div class="col-sm-9 login-box">
+    <div class="modal-content">
+      <div class="col-12 user-img">
+        <img src="../images/user-default.jpg" alt="user-img" class="h-60 w-50  img-profile border-primary rounded-circle"> 
+      </div>
+      {% block identifiants %}
+      
+      {% endblock %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}
