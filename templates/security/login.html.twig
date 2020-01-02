@@ -1,22 +1,20 @@
-{% extends "_partial.html.twig" %}
+{% extends "_login_template.html.twig" %}
 
-{% block body %}
-<!-- <div class="container mt-4"> -->
-{{dump()}}
-<div class="modal-dialog text-center">
-  <div class="col-sm-9 login-box">
-    <div class="modal-content">
-      <div class="col-12 user-img">
-        <img src="../images/user-default.jpg" alt="user-img" class="h-60 w-50  img-profile border-primary rounded-circle"> 
-      </div>
+{% block identifiants %}
       <div class="col-12 form-input mt-5">
        
         <form action="{{ path('clinic_login') }}" method="post">
-        {% if error %}
-          <div class="error alert text-danger font-weight-bold">
-            {{ error.messageKey | trans(error.messageData, 'security') }}
-          </div>
-        {% endif %}
+          {% if error %}
+            <div class="error alert text-danger font-weight-bold">
+              {{ error.messageKey | trans(error.messageData, 'security') }}
+            </div>
+          {% endif %}
+          {# msg flash pwd oublié #}
+          {% for message in app.flashes('forget_password') %}
+						<div class="alert alert-success" id="forget_password">
+							{{ message }}
+						</div>
+					{% endfor %}
           <!-- email -->
           <div class="form-group">
             <div class="input-group">
@@ -39,28 +37,7 @@
         </form>
       </div>
       <div class="col-12 forgot-pwd my-3">
-        <a href="#" class="text-white">Mot de passe oublié?</a>
+        <a href="{{ path('forgetPWD') }}" class="text-white">Mot de passe oublié?</a>
       </div>
-    </div>
-  </div>
-</div>
-<!-- </div> -->
-
-<!-- <div class="container mt-4">
-
-  {% if error %}
-      <div class="error alert danger">
-          {{ error.messageKey | trans(error.messagedata, 'security') }}
-      </div> 
-  {% endif %}
-  <form action="{{ path('clinic_login') }}" method="post">
-      <div class="form-group">
-          <input type="text" name="_username" required placeholder="email" class="form-control" >
-      </div>
-      <div class="form-group">
-          <input type="password" required name="_password" class="form-control">
-      </div>
-      <button type="submit" class="btn btn-secondary">Se connecter</button>
-  </form>
-</div> -->
 {% endblock %}
+
