@@ -27,6 +27,18 @@ $(document).ready(function(){
         }
        
     });
+
+    // $('#facturation_montantPaye').on('click paste keyup change', function() {
+    //     var montf = parseInt($('#facturation_montantFacture').val(),10);
+    //     var remise = parseInt($('#facturation_remise').val(),10);
+    //     var diff = montf - remise;
+    //     $('#facturation_montantPaye').val(diff);
+    // });
+    $('#facturation_montantFacture, #facturation_remise').on('paste keyup change', function() {
+        var montantFacture = parseInt($('#facturation_montantFacture').val(),10);
+        var remise = parseInt($('#facturation_remise').val(),10);
+        $('#facturation_montantPaye').val(montantFacture - (montantFacture*remise/100));
+    });
 });
 
 
