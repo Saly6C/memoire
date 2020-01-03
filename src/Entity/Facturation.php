@@ -27,7 +27,7 @@ class Facturation
     private $priseEnCharge;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $montantPaye;
 
@@ -43,9 +43,14 @@ class Facturation
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Consultation", inversedBy="facturation", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $consultation;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $remise;
 
     public function getId(): ?int
     {
@@ -125,6 +130,18 @@ class Facturation
     public function setConsultation(Consultation $consultation): self
     {
         $this->consultation = $consultation;
+
+        return $this;
+    }
+
+    public function getRemise(): ?int
+    {
+        return $this->remise;
+    }
+
+    public function setRemise(?int $remise): self
+    {
+        $this->remise = $remise;
 
         return $this;
     }
