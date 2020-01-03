@@ -12,6 +12,7 @@
                     <th scope="col">Id</th>
                     <th scope="col">Montant Facture</th>
                     <th scope="col">Prise En Charge</th>
+                    <th scope="col">Remise (en %)</th>
                     <th scope="col">Montant Payé</th>
                     <th scope="col">Nom Assurance</th>
                     <th scope="col">actions</th>
@@ -23,6 +24,7 @@
                     <td>{{ facturation.id }}</td>
                     <td>{{ facturation.montantFacture }}</td>
                     <td>{{ facturation.priseEnCharge ? 'Oui' : 'Non' }}</td>
+                    <td>{{ facturation.remise }}</td>
                     <td>{{ facturation.montantPaye }}</td>
                     <td>{{ facturation.nomAssurance }}</td>
                     <td>
