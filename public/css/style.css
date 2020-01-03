@@ -104,3 +104,10 @@ a.list-group-item-action:hover {
     background-color:#1a3f60;
     color: #fff;
 }
+
+div.form-check {
+    margin: 0px 10px 0px 10px;
+}
+div.block-check div.form-group:first-child > div.form-check {
+    margin-left: 0;
+}
