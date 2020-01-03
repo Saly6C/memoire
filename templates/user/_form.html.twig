@@ -1,4 +1,18 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    {# {{ form_widget(form) }} #}
+    <div class="d-flex">
+        <div class="col-6">{{ form_row(form.email) }}</div>
+        <div class="col-6">{{ form_row(form.username) }}</div>
+    </div>
+    <div class="d-flex">
+        <div class="col-6">{{ form_row(form.status) }}</div>
+        {# ['label' => 'Compte activé'], ['attr' => ['class' => 'btn btn-success', 'value' => 'compte_actif', 'checked'   => 'checked']] #}
+        <div class="col-6">{{ form_row(form.password) }}</div>
+    </div>
+    <div class="col-12 d-flex align-items-end block-check">
+        {% for role in form.roles %}
+            {{ form_row(role) }}
+        {% endfor %}
+    </div>
+    <button class="btn btn-action mb-2">{{ button_label|default('Enregistrer') }}</button>
 {{ form_end(form) }}

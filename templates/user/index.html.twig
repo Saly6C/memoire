@@ -2,42 +2,47 @@
 
 {% block title %}User index{% endblock %}
 
-{% block body %}
-    <h1>User index</h1>
+{% block content %}
+    <div class="container">
+        <h4 class="text-center py-2">Liste Utilisateurs</h4>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Email</th>
-                <th>Username</th>
-                <th>Password</th>
-                <th>Roles</th>
-                <th>Status</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.username }}</td>
-                <td>{{ user.password }}</td>
-                <td>{{ user.roles ? user.roles|join(', ') : '' }}</td>
-                <td>{{ user.status }}</td>
-                <td>
-                    <a href="{{ path('user_show', {'id': user.id}) }}">show</a>
-                    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <table class="table table-responsive table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th scope="col">
+                    <th scope="col">Email</th>
+                    <th scope="col">Username</th>
+                    {# <th>Password</th> #}
+                    <th scope="col">Roles</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">actions</th>
+                </tr>
+            </thead>
+            <tbody id="utilisateurList">
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.username }}</td>
+                    {# <td>{{ user.password }}</td> #}
+                    <td>{{ user.roles ? user.roles|join(', ') : '' }}</td>
+                    <td>{{ user.status }}</td>
+                    <td>
+                        <a href="{{ path('user_show', {'id': user.id}) }}"><i class="fas fa-eye text-dark"></i></a>
+                        <a href="{{ path('user_edit', {'id': user.id}) }}"><i class="fas fa-edit text-dark"></i></a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
 
-    <a href="{{ path('user_new') }}">Create new</a>
+        <a href="{{ path('user_new') }}" class="d-flex pb-2">
+            <i class="fa fa-plus text-dark" aria-hidden="true"></i>
+            <h6 class="ml-2 text-dark">Ajouter un nouvel utilisateur</h6>
+        </a>
+    </div>
 {% endblock %}
