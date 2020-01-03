@@ -14,10 +14,12 @@ class FacturationType extends AbstractType
         $builder
             ->add('montantFacture')
             ->add('priseEnCharge')
+            ->add('remise')
             ->add('montantPaye')
             ->add('nomAssurance')
             ->add('hospitalisation')
             ->add('consultation')
+            
         ;
     }
 
