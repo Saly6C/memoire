@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $("#rechercher").on("keyup", function() {
         var value = $(this).val().toLowerCase();
-        $("#consultationList tr, #hospitalisationList tr, #chambreList tr, #dossierPatientList tr, #facturationList tr, #patientList tr, #personnelList tr, #rendezVousList tr, #serviceList tr").filter(function() {
+        $("#consultationList tr, #hospitalisationList tr, #chambreList tr, #dossierPatientList tr, #facturationList tr, #patientList tr, #personnelList tr, #rendezVousList tr, #serviceList tr, #utilisateurList tr").filter(function() {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
     });
@@ -16,9 +16,16 @@ $(document).ready(function(){
         todayHighlight: true,    
     });
 
-    $("#souscription_status").click(function(){            
-        $("#souscription_status").attr("disabled", "true").attr("value", 'compte-inactif');
-        $("#souscription_status + .form-check-label").text('Compte désactivé')
+    $("#user_status").click(function(){            
+        // $("#user_status").attr("value", 'inactif');
+        // $(this).toggleClass("actif inactif");
+        var test = $("#user_status").val();
+        if(test == "actif") {
+            $(this).attr("value", 'inactif');
+        }else {
+            $(this).attr("value", 'actif');
+        }
+       
     });
 });
 
