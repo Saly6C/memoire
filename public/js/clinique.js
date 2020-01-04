@@ -10,10 +10,11 @@ $(document).ready(function(){
        $ ('#msgFlash').hide();
     }, 3000);
 
-    $('.js-datepicker').datepicker({
-        format: 'yyyy-mm-dd' ,
-        startDate: 'd',
-        todayHighlight: true,    
+    $('.js-datepicker').datetimepicker({
+        format : 'YYYY-MM-DD hh:mm',
+        icons: {
+            time: 'fas fa-clock'
+        }
     });
 
     $("#user_status").click(function(){            
