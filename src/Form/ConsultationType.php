@@ -7,18 +7,17 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
 class ConsultationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('dateConsultation', DateType::class, [
+            ->add('dateConsultation', DateTimeType::class, [
                 'widget'=> 'single_text',
-                // 'placeholder' => 'Cliquez pour sélectionner une valeur',
                 'html5' => false,
-                // 'view_timezone' => 'Africa/Dakar',
-                'attr' => ['class' => 'js-datepicker']
+                'attr' => ['class' => 'js-datepicker', 'placeholder' => 'Cliquez pour choisir une date et heure'],                
             ])
             ->add('diagnostic')
             ->add('prochainRV')
