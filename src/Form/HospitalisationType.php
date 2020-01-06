@@ -7,14 +7,25 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
 class HospitalisationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('dateHospitalisation')
-            ->add('dateSortie')
+            // ->add('dateHospitalisation')
+            ->add('dateHospitalisation', DateTimeType::class, [
+                'widget'=> 'single_text',
+                'html5' => false,
+                'attr' => ['class' => 'js-datepicker', 'placeholder' => 'Cliquez pour choisir une date et heure'],                
+            ])
+            ->add('dateSortie', DateTimeType::class, [
+                'widget'=> 'single_text',
+                'html5' => false,
+                'attr' => ['class' => 'js-datepicker', 'placeholder' => 'Cliquez pour choisir une date et heure'],                
+            ])
+            // ->add('dateSortie')
             ->add('chambre')
             ->add('patient')
             ->add('pieceDuMalade', ChoiceType::class, [
