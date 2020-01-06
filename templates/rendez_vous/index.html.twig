@@ -20,7 +20,7 @@
             {% for rendez_vous in rendez_vouses %}
                 <tr>
                     <td>{{ rendez_vous.id }}</td>
-                    <td>{{ rendez_vous.dateRV ? rendez_vous.dateRV|date('Y-m-d') : '' }}</td>
+                    <td>{{ rendez_vous.dateRV ? rendez_vous.dateRV|date('Y-m-d H:i:s') : ''  }}</td>
                     <td>{{ rendez_vous.nomClient }}</td>
                     <td>{{ rendez_vous.email }}</td>
                     <td>
