@@ -14,7 +14,7 @@ i.fa-clinic-medical {
     font-size: 4em;
 }
 
-div.menu, div.banner, div.footer, .connexion, .right_content, .statistiques {
+div.menu, div.banner, div.footer, .connexion, .right_content, .statistiques, .compte_actif, .derniere_consultation {
     background-color: #1a3f60;
     /* background-color: #2f5779; */
     box-shadow: 0 2px 17px rgba(238, 233, 233, 0.945);
@@ -110,4 +110,8 @@ div.form-check {
 }
 div.block-check div.form-group:first-child > div.form-check {
     margin-left: 0;
+}
+
+rect {
+    border: 1px solid #1a3f60;
 }
