@@ -46,9 +46,15 @@
             </tbody>
         </table>
 
-        <a href="{{ path('consultation_new') }}" class="d-flex pb-2">
-            <i class="fa fa-plus text-dark" aria-hidden="true"></i>
-            <h6 class="ml-2 text-dark">Ajouter une nouvelle consultation</h6>
-        </a>
+        <div class="d-flex justify-content-between">
+            <a href="{{ path('consultation_new') }}" class="d-flex pb-2">
+                <i class="fa fa-plus text-dark" aria-hidden="true"></i>
+                <h6 class="ml-2 text-dark">Ajouter une nouvelle consultation</h6>
+            </a>
+            <a href="{{ path('facturation_new') }}" class="d-flex pb-2">
+                <i class="fa fa-plus text-dark" aria-hidden="true"></i>
+                <h6 class="ml-2 text-dark">Ajouter une facture</h6>
+            </a>
+        </div>
     </div>
 {% endblock %}
