@@ -29,17 +29,23 @@ $(document).ready(function(){
        
     });
 
-    // $('#facturation_montantPaye').on('click paste keyup change', function() {
-    //     var montf = parseInt($('#facturation_montantFacture').val(),10);
-    //     var remise = parseInt($('#facturation_remise').val(),10);
-    //     var diff = montf - remise;
-    //     $('#facturation_montantPaye').val(diff);
-    // });
     $('#facturation_montantFacture, #facturation_remise').on('paste keyup change', function() {
         var montantFacture = parseInt($('#facturation_montantFacture').val(),10);
         var remise = parseInt($('#facturation_remise').val(),10);
         $('#facturation_montantPaye').val(montantFacture - (montantFacture*remise/100));
     });
+    // var val2 = val2|json_encode|raw ;
+    // var val1 = $('.nbrConsultation').join(',').text();
+    // var val2 = $('.nomPersonnel').text();
+    // var val3 = $('.nomService').text();
+    // var array = document.getElementById('array').value;
+    // var test = JSON.parse(array);
+    // // alert(test[key];
+    // // for( key in test) {
+    //     console.log(test)
+
+    // }
+
 });
 
 
