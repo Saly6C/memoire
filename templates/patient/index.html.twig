@@ -40,9 +40,15 @@
         </tbody>
         </table>
 
-        <a href="{{ path('patient_new') }}" class="d-flex pb-2">
-            <i class="fa fa-plus text-dark" aria-hidden="true"></i>
-            <h6 class="ml-2 text-dark">Ajouter un nouveau patient</h6>
-        </a>
+        <div class="d-flex justify-content-between">
+            <a href="{{ path('patient_new') }}" class="d-flex pb-2">
+                <i class="fa fa-plus text-dark" aria-hidden="true"></i>
+                <h6 class="ml-2 text-dark">Ajouter un nouveau patient</h6>
+            </a>
+            <a href="{{ path('dossier_patient_new') }}" class="d-flex pb-2">
+                <i class="fa fa-user-plus text-dark" aria-hidden="true"></i>
+                <h6 class="ml-2 text-dark">Créer un dossier patient</h6>
+            </a>
+        </div>
     </div>
 {% endblock %}
