@@ -1,5 +1,5 @@
 var array = document.getElementById('array').value;
-    var test = JSON.parse(array);
+var test = JSON.parse(array);
     // alert(test[key];
     // for( key in test) {
         console.log(test)
@@ -14,9 +14,9 @@ var array = document.getElementById('array').value;
             ["Element", "nombre de consultations", { role: "style" } ],
             // [val3, parseInt(val1), "#b87333"],
             
-            [test[0].nomService, parseInt(test[0].nombre), "silver"],
-            [test[1].nomService, parseInt(test[1].nombre), "gold"],
-            [test[2].nomService, parseInt(test[2].nombre), "color: #b87333"],
+            [test[0].nomService, parseInt(test[0].nombre), "#3f51b5"],
+            [test[1].nomService, parseInt(test[1].nombre), "color :#b87333"],
+            [test[2].nomService, parseInt(test[2].nombre), "color: #e5e4e2"],
             // ["Platinum", 21.45, "color: #e5e4e2"]
         ]);
 
