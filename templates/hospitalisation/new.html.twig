@@ -2,6 +2,13 @@
 
 {% block title %}Nouvelle Hospitalisation{% endblock %}
 
+{% block hospitalisation %}
+    {{parent()}}
+    <style type="text/css">
+        .block_hospitalisation { background-color: #c7c7c7}
+    </style>
+{% endblock %}
+
 {% block content %}
     <div class="container py-2">
         <h4 class="text-center">Créer une nouvelle Hospitalisation</h4>
