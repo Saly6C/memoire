@@ -1,8 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Consultation{% endblock %}
-
-{% block content%}
+{% block consultation %}
+    {{parent()}}
+    <style type="text/css">
+        .block_consultation { background-color: #c7c7c7}
+    </style>
+{% endblock %}
+{% block content %}
     
     <div class="container py-2">
         <h4 class="text-center">Informations Consultation</h4>

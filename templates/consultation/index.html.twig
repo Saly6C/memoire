@@ -1,7 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Consultation index{% endblock %}
-
+{% block consultation %}
+    {{parent()}}
+    <style type="text/css">
+        .block_consultation { background-color: #c7c7c7}
+    </style>
+{% endblock %}
 {% block content %}
     
     <div class="container">
