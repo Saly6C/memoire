@@ -2,6 +2,13 @@
 
 {% block title %}Edit User{% endblock %}
 
+{% block users %}
+    {{parent()}}
+    <style type="text/css">
+        .block_users { background-color: #c7c7c7}
+    </style>
+{% endblock %}
+
 {% block content %}
 {# {{dump()}} #}
     <div class="container">

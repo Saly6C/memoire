@@ -2,6 +2,13 @@
 
 {% block title %}New User{% endblock %}
 
+{% block users %}
+    {{parent()}}
+    <style type="text/css">
+        .block_users { background-color: #c7c7c7}
+    </style>
+{% endblock %}
+
 {% block content %}
     <div class="container">
         <h4 class="text-center my-2">Nouvel utilisateur</h4>
