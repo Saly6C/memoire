@@ -1,7 +1,7 @@
 {% extends "_partial.html.twig" %}
 
 {% block body %}
-{{dump()}}
+{# {{dump()}} #}
 	{% if app.user.status == 'actif' %}
 	<div
 		class="container-fluid py-3 mt-2 bgc-contenu">
@@ -30,7 +30,8 @@
 					<img src="{{asset('/images/user-default.jpg')}}" alt="user-img" class="img-fluid rounded-circle p-5">
 				</a>
 				{# consultation #}
-				<a class="list-group-item list-group-item-action" href="{{ path('consultation_index') }}">
+			{% block consultation %}
+				<a class="list-group-item list-group-item-action block_consultation" href="{{ path('consultation_index') }}">
 					<div class="d-flex">
 						<span class="col-2">
 							<i class="fas fa-user-md"></i>
@@ -41,8 +42,11 @@
 						</span>
 					</div>
 				</a>	
+			{% endblock %}
+
+			{% block hospitalisation %}
 				{# hospitalisation #}
-				<a class="list-group-item list-group-item-action" href="{{ path('hospitalisation_index') }}">
+				<a class="list-group-item list-group-item-action block_hospitalisation" href="{{ path('hospitalisation_index') }}">
 					<div class="d-flex">
 						<span class="col-2">
 							<i class="fas fa-procedures"></i>
@@ -53,8 +57,11 @@
 						</span>
 					</div>
 				</a>
+			{% endblock %}
+
+			{% block dossier_patient %}
 				{# dossier patient #}
-				<a class="list-group-item list-group-item-action" href="{{ path('dossier_patient_index') }}">
+				<a class="list-group-item list-group-item-action block_dossier_patient" href="{{ path('dossier_patient_index') }}">
 					<div class="d-flex">
 						<span class="col-2">
 							<i class="fas fa-address-book"></i>
@@ -65,8 +72,12 @@
 						</span>
 					</div>
 				</a>
+			{% endblock %}
+
+			{% block patient %}
+				
 				{# patient #}
-				<a class="list-group-item list-group-item-action" href="{{ path('patient_index') }}">
+				<a class="list-group-item list-group-item-action block_patient" href="{{ path('patient_index') }}">
 					<div class="d-flex">
 						<span class="col-2">
 							<i class="fas fa-user-injured"></i>
@@ -77,50 +88,55 @@
 						</span>
 					</div>
 				</a>
-				{# controle visiblite personnel, service, chambre #}
-				{# {% for role in  app.user.roles %}
-					{% if role =="Admin" %} #}
-						{# personnel #}
-						<a class="list-group-item list-group-item-action" href="{{ path('personnel_index') }}">
-							<div class="d-flex">
-								<span class="col-2">
-									<i class="fas fa-users"></i>
-								</span>
-								<span class="col-8 d-flex justify-content-center font-weight-bold">Personnels</span>
-								<span class="col-2 patient d-flex justify-content-center align-items-center">
-									<i class="test fas fa-angle-right"></i>
-								</span>
-							</div>
-						</a>
-						{# service  #}
-						<a class="list-group-item list-group-item-action" href="{{ path('service_index') }}">
-							<div class="d-flex">
-								<span class="col-2">
-									<i class="fas fa-building"></i>
-								</span>
-								<span class="col-8 d-flex justify-content-center font-weight-bold">Services</span>
-								<span class="col-2 patient d-flex justify-content-center align-items-center">
-									<i class="test fas fa-angle-right"></i>
-								</span>
-							</div>
-						</a>
-						{# chambre #}
-						<a class="list-group-item list-group-item-action" href="{{ path('chambre_index') }}">
-							<div class="d-flex">
-								<span class="col-2">
-									<i class="fa fa-bed"></i>
-								</span>
-								<span class="col-8 d-flex justify-content-center font-weight-bold">Chambre</span>
-								<span class="col-2 patient d-flex justify-content-center align-items-center">
-									<i class="test fas fa-angle-right"></i>
-								</span>
-							</div>
-						</a>
-					{# {% endif %}
-				{% endfor %} #}
-				
+				{% endblock %}
+			{% block personnel %}
+				{# personnel #}
+				<a class="list-group-item list-group-item-action block_personnel" href="{{ path('personnel_index') }}">
+					<div class="d-flex">
+						<span class="col-2">
+							<i class="fas fa-users"></i>
+						</span>
+						<span class="col-8 d-flex justify-content-center font-weight-bold">Personnels</span>
+						<span class="col-2 patient d-flex justify-content-center align-items-center">
+							<i class="test fas fa-angle-right"></i>
+						</span>
+					</div>
+				</a>
+			{% endblock %}
+
+			{% block service %}
+				{# service  #}
+				<a class="list-group-item list-group-item-action block_service" href="{{ path('service_index') }}">
+					<div class="d-flex">
+						<span class="col-2">
+							<i class="fas fa-building"></i>
+						</span>
+						<span class="col-8 d-flex justify-content-center font-weight-bold">Services</span>
+						<span class="col-2 patient d-flex justify-content-center align-items-center">
+							<i class="test fas fa-angle-right"></i>
+						</span>
+					</div>
+				</a>
+			{% endblock %}
+
+			{% block chambre %}
+				{# chambre #}
+				<a class="list-group-item list-group-item-action block_chambre" href="{{ path('chambre_index') }}">
+					<div class="d-flex">
+						<span class="col-2">
+							<i class="fa fa-bed"></i>
+						</span>
+						<span class="col-8 d-flex justify-content-center font-weight-bold">Chambre</span>
+						<span class="col-2 patient d-flex justify-content-center align-items-center">
+							<i class="test fas fa-angle-right"></i>
+						</span>
+					</div>
+				</a>
+			{% endblock %}
+
+			{% block rendez_vous %}
 				{# rendez-vous  #}
-				<a class="list-group-item list-group-item-action" href="{{ path('rendez_vous_index') }}">
+				<a class="list-group-item list-group-item-action block_rendez_vous" href="{{ path('rendez_vous_index') }}">
 					<div class="d-flex">
 						<span class="col-2">
 							<i class="fas fa-calendar"></i>
@@ -131,8 +147,11 @@
 						</span>
 					</div>
 				</a>
+			{% endblock %}
+
+			{% block facturation %}
 				{# facturation #}
-				<a class="list-group-item list-group-item-action" href="{{ path('facturation_index') }}">
+				<a class="list-group-item list-group-item-action block_facturation" href="{{ path('facturation_index') }}">
 					<div class="d-flex">
 						<span class="col-2">
 							<i class="fas fa-hand-holding-usd"></i>
@@ -143,6 +162,9 @@
 						</span>
 					</div>
 				</a>
+			{% endblock %}
+
+			{# {% block  %} #}
 				{# parametre #}
 				<a class="list-group-item list-group-item-action" href="#list-settings">
 					<div class="d-flex">
@@ -155,10 +177,13 @@
 						</span>
 					</div>
 				</a>
+			{# {% endblock %} #}
+
+			{% block users  %}
 				{# gestion utilisateurs #}
 				{% for role in app.user.roles %}
 					{% if role == "Admin" %}
-					<a class="list-group-item list-group-item-action" href="{{path('user_index')}}" data-toggle="tooltip" data-placement="top" title="Cliquez pour vous déconnectez">
+					<a class="list-group-item list-group-item-action block_users" href="{{path('user_index')}}" data-toggle="tooltip" data-placement="top" title="Cliquez pour vous déconnectez">
 						<div class="d-flex">
 							<span class="col-2">
 								<i class="fas fa-users"></i>
@@ -168,9 +193,10 @@
 							<span class="col-2 d-flex justify-content-center align-items-center"><i class="test fas fa-angle-right"></i></span>
 						</div>
 					</a>
-				{% endif %}
+					{% endif %}
 				{% endfor %}
-				
+			{% endblock %}	
+
 				{# deconnection #}
 				<a class="list-group-item list-group-item-action" href="{{path('clinic_logout')}}" data-toggle="tooltip" data-placement="top" title="Cliquez pour vous déconnectez">
 					<div class="d-flex">
