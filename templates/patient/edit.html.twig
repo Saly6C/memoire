@@ -2,6 +2,13 @@
 
 {% block title %}Modifier Patient{% endblock %}
 
+{% block patient %}
+    {{parent()}}
+    <style type="text/css">
+        .block_patient { background-color: #c7c7c7}
+    </style>
+{% endblock %}
+
 {% block content %}
     <div class="container py-2">
         <h4 class="text-center mt-2" >Modifier un Patient</h4>
