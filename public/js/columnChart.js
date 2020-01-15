@@ -14,8 +14,8 @@ var test = JSON.parse(array);
             ["Element", "nombre de consultations", { role: "style" } ],
             // [val3, parseInt(val1), "#b87333"],
             
-            [test[0].nomService, parseInt(test[0].nombre), "#3f51b5"],
-            [test[1].nomService, parseInt(test[1].nombre), "color :#b87333"],
+            [test[0].nomService, parseInt(test[0].nombre), "#1a3f60"],
+            [test[1].nomService, parseInt(test[1].nombre), "color :#DC3912"],
             [test[2].nomService, parseInt(test[2].nombre), "color: #e5e4e2"],
             // ["Platinum", 21.45, "color: #e5e4e2"]
         ]);
@@ -34,6 +34,11 @@ var test = JSON.parse(array);
             height: 300,
             bar: {groupWidth: "95%"},
             legend: { position: "none" },
+            titleTextStyle: { 
+                fontSize: 14,
+                bold: true,
+                }
+                  
         };
         var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
         chart.draw(view, options);

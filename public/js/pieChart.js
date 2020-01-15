@@ -72,7 +72,17 @@ console.log(test1)
    // Set chart options
    var options = {'title':'Nombre d\'hospitalisations par mois',
                   // 'width':400,
-                  'height':300};
+                  'height':300,
+                  // 'fontSize': 14
+                  slices: {
+                    0: { color: '#DC3912' },
+                    1: { color: '#1a3f60' },
+                  },
+                  titleTextStyle: { 
+                    fontSize: 14,
+                    bold: true,
+                    }
+                };
 
    // Instantiate and draw our chart, passing in some options.
    var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
