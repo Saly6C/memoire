@@ -2,6 +2,13 @@
 
 {% block title %}Facturation index{% endblock %}
 
+{% block facturation %}
+    {{parent()}}
+    <style type="text/css">
+        .block_facturation { background-color: #c7c7c7}
+    </style>
+{% endblock %}
+
 {% block content %}
     <div class="container">
         <h4 class="text-center py-2">Liste des Facturation</h4>
