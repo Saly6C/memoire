@@ -2,6 +2,13 @@
 
 {% block title %}Ajouter Rendez-Vous{% endblock %}
 
+{% block rendez_vous %}
+    {{parent()}}
+    <style type="text/css">
+        .block_rendez_vous { background-color: #c7c7c7}
+    </style>
+{% endblock %}
+
 {% block content %}
 
     <div class="container py-2">

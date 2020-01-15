@@ -2,6 +2,13 @@
 
 {% block title %}RendezVous index{% endblock %}
 
+{% block rendez_vous %}
+    {{parent()}}
+    <style type="text/css">
+        .block_rendez_vous { background-color: #c7c7c7}
+    </style>
+{% endblock %}
+
 {% block content %}
     <div class="container">
         <h4 class="text-center py-2">Liste des Rendez-Vous</h4>
