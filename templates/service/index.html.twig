@@ -2,6 +2,13 @@
 
 {% block title %}Service index{% endblock %}
 
+{% block service %}
+    {{parent()}}
+    <style type="text/css">
+        .block_service { background-color: #c7c7c7}
+    </style>
+{% endblock %}
+
 {% block content %}
     <div class="container">
         <h4 class="text-center py-2">Liste des Services</h4>
