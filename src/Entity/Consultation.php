@@ -166,6 +166,6 @@ class Consultation
     }
 
     public function __toString() {
-        return (string)$this->patient;
+        return "Date de consultation: ".$this->dateConsultation->format('Y-m-d').", nom patient: ".(string)$this->patient;
     }
 }
