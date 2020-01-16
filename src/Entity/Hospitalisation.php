@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\HospitalisationRepository")
  */
@@ -61,11 +61,19 @@ class Hospitalisation
 
     /**
      * @ORM\Column(type="bigint")
+     * @Assert\Length(
+     *      max = 13,
+     *      min = 9,
+     * )
      */
     private $numeroPieceMalade;
 
     /**
      * @ORM\Column(type="bigint")
+     * @Assert\Length(
+     *      max = 13,
+     *      min = 9,
+     * )
      */
     private $numeroPieceDemandeur;
 
