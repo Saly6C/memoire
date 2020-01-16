@@ -203,6 +203,6 @@ class Hospitalisation
     }
 
     public function __toString() {
-        return (string)$this->patient;
+        return "Date d'hospitalisation: ".$this->dateHospitalisation->format('Y-m-d H:i:s')." Patient: ".(string)$this->patient;
     }
 }
