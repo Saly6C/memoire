@@ -20,19 +20,31 @@
                 </tr>
                 <tr>
                     <th>Montant Facture</th>
-                    <td>{{ facturation.montantFacture }}</td>
+                    <td>{{ facturation.montantFacture|number_format(0, '.', ',')~'FCFA' }}</td>
                 </tr>
                 <tr>
                     <th>Prise En Charge</th>
                     <td>{{ facturation.priseEnCharge ? 'Oui' : 'Non' }}</td>
                 </tr>
                 <tr>
+                    <th>Remise</th>
+                    <td>{{ facturation.remise ~'%'}}</td>
+                </tr>
+                <tr>
                     <th>Montant Paye</th>
-                    <td>{{ facturation.montantPaye }}</td>
+                    <td>{{ facturation.montantPaye|number_format(0, '.', ',')~'FCFA' }}</td>
                 </tr>
                 <tr>
                     <th>Nom Assurance</th>
                     <td>{{ facturation.nomAssurance }}</td>
+                </tr>
+                <tr>
+                    <th>Hospitalisation</th>
+                    <td>{{ facturation.hospitalisation }}</td>
+                </tr>
+                <tr>
+                    <th>Consultation</th>
+                    <td>{{ facturation.consultation }}</td>
                 </tr>
             </tbody>
         </table>
