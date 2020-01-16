@@ -38,6 +38,7 @@ class Facturation
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Hospitalisation", mappedBy="facturation", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=true)
      */
     private $hospitalisation;
 
