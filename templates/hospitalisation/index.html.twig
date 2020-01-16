@@ -10,6 +10,7 @@
 {% endblock %}
 
 {% block content %}
+
 <div class="container">
     <h4 class="text-center py-2">Liste des Hospitalisations</h4>
 
@@ -40,10 +41,18 @@
                 <td>{{ hospitalisation.dateSortie ? hospitalisation.dateSortie|date('Y-m-d') : '' }}</td>
                 <td>{{ hospitalisation.chambre }}</td>
                 <td>{{ hospitalisation.patient }}</td>
-                <td>{{ hospitalisation.pieceDuMalade[0] }}</td>
+                <td>
+                    {% for item in hospitalisation.pieceDuMalade %}
+                        {{item}}
+                    {% endfor %}
+                </td>
                 <td>{{ hospitalisation.numeroPieceMalade }}</td>
                 <td>{{ hospitalisation.nomDemandeur }}</td>
-                <td>{{ hospitalisation.pieceDuDemandeur[0] }}</td>
+                <td>
+                    {% for item in hospitalisation.pieceDuDemandeur %}
+                        {{item}}
+                    {% endfor %}
+                </td>
                 <td>{{ hospitalisation.numeroPieceDemandeur }}</td>
                 <td>
                     <a href="{{ path('hospitalisation_show', {'id': hospitalisation.id}) }}">

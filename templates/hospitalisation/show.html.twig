@@ -42,15 +42,19 @@
                 </tr>
                 <tr>
                     <th>Type de pièce du Malade</th>
-                    <td>{% for item in hospitalisation.pieceDuMalade %}
-                        {{item}}
-                    {% endfor %}</td>
+                    <td>
+                        {% for item in hospitalisation.pieceDuMalade %}
+                            {{item}}
+                        {% endfor %}
+                    </td>
                 </tr>
                 <tr>
                     <th>Type de pièce du demandeur</th>
-                    <td>{% for item in hospitalisation.pieceDuDemandeur %}
-                        {{ item }}
-                    {% endfor %}</td>
+                    <td>
+                        {% for item in hospitalisation.pieceDuDemandeur %}
+                            {{ item }}
+                        {% endfor %}
+                    </td>
                 </tr>
                 <tr>
                     <th>Numéro de pièce du malade</th>
